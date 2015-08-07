@@ -1,1 +1,3 @@
-gem "weaver", path: "/Users/David/programs/weaver"
+source "https://rubygems.org"
+
+gem "weaver"
