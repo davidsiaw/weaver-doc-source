@@ -1,0 +1,17 @@
+center_page "", "Welcome to Weaver" do
+	h2 "Welcome to Weaver"
+	widget color: :red do
+		p "hello everyone"
+	end
+
+	ibox do
+		title "Title"
+		p "This is the body"
+	end
+
+	jumbotron do
+		h3 "Nyanpass"
+	end
+
+	rounded_button :star, "nyan", outline: true, toggle: true, style: :warning
+end
