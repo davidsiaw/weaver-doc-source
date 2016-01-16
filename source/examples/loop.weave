@@ -1,0 +1,8 @@
+center_page "Hello world" do
+	ibox do
+		h2 "Hello world!"
+		for i in 1..5
+			p "#{i}"
+		end
+	end
+end

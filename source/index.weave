@@ -1,17 +1,533 @@
-center_page "", "Welcome to Weaver" do
-	h2 "Welcome to Weaver"
-	widget color: :red do
-		p "hello everyone"
+include "main.rb"
+
+topnav_page "Weaver Documentation" do
+
+	top do
+		text <<-GITHUBRIBBON
+		<a href="https://github.com/davidsiaw/weaver"><img style="position: absolute; z-index: 9999; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+		GITHUBRIBBON
+		
 	end
 
-	ibox do
-		title "Title"
-		p "This is the body"
+	header do
+		col 12 do
+			h2 "Welcome to Weaver"
+			hr
+			p "The following is a rough documentation intended to simply demonstrate and enumerate the facilities provided by weaver"
+		end
 	end
 
-	jumbotron do
-		h3 "Nyanpass"
+	row do
+		col 12 do
+			hr
+		end
 	end
 
-	rounded_button :star, "nyan", outline: true, toggle: true, style: :warning
+	row do
+		col 12 do
+			ibox do
+				title "Installing Weaver"
+
+				pre "gem install weaver"
+
+			end
+		end
+	end
+
+	row do
+		col 12 do
+			ibox do
+				title "Creating a new weaver site"
+
+				pre "weaver create my_site"
+
+				p "This will create a folder that looks like this:"
+
+				pre <<-TREE
+my_site/
+├── Gemfile
+└── source
+    └── index.weave
+				TREE
+
+				p "Weave files are where you describe websites. To preview your site, simply go"
+
+				pre <<-COMMANDS
+cd my_site
+bundle install
+bundle exec weaver
+				COMMANDS
+
+			end
+		end
+	end
+
+	row do
+		col 12 do
+			ibox do
+				title "Simple example Weave file"
+
+				p "The most basic file takes one argument: the title, and a block that contains the contents of the page"
+
+				link_example "hello"
+			end
+		end
+	end
+
+	row do
+		col 12 do
+			ibox do
+				title "Weave files only contain Ruby code"
+
+				p "This means that you can do whatever you can normally do in Ruby"
+
+				link_example "loop"
+			end
+		end
+	end
+
+	row do
+		col 12 do
+			ibox do
+				title "You can use all the HTML tags by simply calling them as if they are methods:"
+
+				display_example <<-STUFF
+h1 "This is Heading 1"
+h2 "This is Heading 2"
+h3 "This is Heading 3"
+h4 "This is Heading 4"
+h5 "This is Heading 5"
+h6 "This is Heading 6"
+pre "This is Preformatted"
+em "This is Emphasized"
+blockquote "This is in a Blockquote"
+p "Paragraph text"
+				STUFF
+
+			end
+		end
+	end
+
+	row do
+		col 12 do
+			ibox do
+				title "You can also put attributes on a tag"
+
+				p "This allows you to change styles, set more attributes on it, etc ..."
+				
+				display_example <<-STUFF
+span "Some text "
+span "colored ", style:"color:blue"
+span "red ", style:"color:red"
+				STUFF
+
+			end
+		end
+	end
+
+	row do
+		col 12 do
+			ibox do
+				title "You can also wrap content in another tag"
+
+				p "This is the same as doing it in HTML. Instead of passing it a string, you use a block"
+				
+				display_example <<-STUFF
+h3 style:"text-decoration:underline" do
+	span "Some text "
+	span "colored ", style:"color:blue"
+	span "red ", style:"color:red"
+end
+				STUFF
+
+			end
+		end
+	end
+
+	row do
+		col 12 do
+			ibox do
+				title "This works for all tags"
+
+				p "Like lists:"
+				
+				display_example <<-STUFF
+ul do
+	li { text "Haruhi" }
+	li { text "Kyon" }
+	li { text "Itsuki" }
+end
+
+ol do
+	li { text "Nagato" }
+	li { text "Mikuru" }
+	li { text "Tsuruya" }
+end
+				STUFF
+
+				footer do
+					code "text"
+					text " is a special tag to mean 'there are no tags', just plain html"
+				end
+			end
+		end
+	end
+
+	row do
+		col 12 do
+			ibox do
+				title "Icons"
+
+				p "There are icons available in here since the theme uses bootstrap"
+
+				display_example <<-STUFF
+icon :github
+text "Github"
+br
+icon :user
+text "User"
+				STUFF
+
+				footer do 
+					text "A list of all icons are available here: "
+					link "examples/icons"
+				end
+			end
+		end
+	end
+
+	row do
+		col 12 do
+			ibox do
+				title "Breadcrumbs"
+
+				display_example <<-STUFF
+breadcrumb ["root", "some", "directory"]
+				STUFF
+
+			end
+		end
+	end
+
+	row do
+		col 12 do
+			ibox do
+				title "Images"
+
+				display_example <<-STUFF
+image "kagamin.png"
+				STUFF
+
+				footer do
+					p "Images are placed in the images folder, where they will be found"
+				end
+			end
+		end
+	end
+
+	row do
+		col 12 do
+			ibox do
+				title "Crossfading images"
+
+				display_example <<-STUFF
+crossfade_image "kagamin-under.png", "kagamin.png"
+				STUFF
+
+				footer do
+					p "Images are placed in the images folder, where they will be found"
+				end
+			end
+		end
+	end
+
+	row do
+		col 12 do
+			ibox do
+				title "Syntax Highlighting"
+
+				display_example <<-STUFF
+syntax :javascript do
+	content <<-SOME_CODE
+function a()
+{
+	return 0;
+}
+SOME_CODE
+end
+				STUFF
+
+			end
+		end
+	end
+
+	row do
+		col 12 do
+			ibox do
+				title "There are different page templates to choose from"
+
+				link_example "topnav_page"
+				hr
+				link_example "sidenav_page"
+				hr
+				link_example "center_page"
+
+			end
+		end
+	end
+
+	row do
+		col 12 do
+			ibox do
+				title "There are different preset partition schemes too"
+
+				link_example "partition_schemes"
+
+			end
+		end
+	end
+
+	row do
+		col 12 do
+			ibox do
+				title "There are buttons"
+
+				display_example <<-TABCODE
+button nil, "Normal Button"; br
+block_button nil, "Block Button"; br
+outline_button nil, "Outline Button"; br
+big_button nil, "Big Button"; br
+small_button nil, "Small Button"; br
+tiny_button :user, ""; br
+embossed_button nil, "Embossed Button"; br
+big_embossed_button :user, ""; br
+rounded_button nil, "Rounded Button"; br
+circle_button :user, ""; br
+
+				TABCODE
+			end
+		end
+	end
+
+	row do
+		col 12 do
+			ibox do
+				title "There are various types of panels available"
+
+				display_example <<-TABCODE
+ibox do
+	type :panel
+	title "Panel"
+	p "Some content"
+end
+
+ibox do
+	type :primary
+	title "Primary"
+	p "Some content"
+end
+
+ibox do
+	type :success
+	title "Success"
+	p "Some content"
+end
+
+ibox do
+	type :info
+	title "Info"
+	p "Some content"
+end
+
+ibox do
+	type :warning
+	title "Warning"
+	p "Some content"
+end
+
+ibox do
+	type :danger
+	title "Danger"
+	p "Some content"
+end
+
+ibox do
+	type :blank
+	title "Blank"
+	p "Some content"
+end
+				TABCODE
+			end
+		end
+	end
+
+	row do
+		col 12 do
+			ibox do
+				title "Jumbotron"
+
+				display_example <<-TABCODE
+jumbotron do
+	h2 "Jumbotron"
+end
+				TABCODE
+			end
+		end
+	end
+
+	row do
+		col 12 do
+			ibox do
+				title "Widgets"
+
+				display_example <<-TABCODE
+widget color: :"gray" do
+	p "gray"
+end
+widget color: :"gray" do	
+	widget color: :"white" do
+		p "white"
+	end
+end
+widget color: :"navy" do
+	p "navy"
+end
+widget color: :"blue" do
+	p "blue"
+end
+widget color: :"lazur" do
+	p "lazur"
+end
+widget color: :"yellow" do
+	p "yellow"
+end
+widget color: :"red" do
+	p "red"
+end
+widget color: :"black" do
+	p "black", style: "color:white"
+end
+				TABCODE
+			end
+		end
+	end
+
+	row do
+		col 12 do
+			ibox do
+				title "It is easy to make tabs"
+
+				display_example <<-TABCODE
+tabs do
+	tab "Dog" do
+		p "Woof" 
+	end
+	tab "Cat" do
+		p "Meow"
+	end
+	tab "Duck" do
+		p "Quack"
+	end
+end
+				TABCODE
+			end
+		end
+	end
+
+	row do
+		col 12 do
+			ibox do
+				title "There are two other possible orientations"
+
+				p do
+					text "There is "
+					code ":left"
+					text " and "
+					code ":right" 
+				end
+
+				display_example <<-TABCODE
+tabs do
+	orientation :left
+	tab "Dog" do
+		p "Woof" 
+	end
+	tab "Cat" do
+		p "Meow"
+	end
+	tab "Duck" do
+		p "Quack"
+	end
+end
+				TABCODE
+			end
+		end
+	end
+
+	row do
+		col 12 do
+			ibox do
+				title "It is also possible to use icons"
+
+				display_example <<-TABCODE
+tabs do
+	tab :automobile do
+		p "Car" 
+	end
+	tab :train do
+		p "Subway"
+	end
+	tab :bus do
+		p "Bus"
+	end
+end
+				TABCODE
+
+				footer do 
+					text "A list of all icons are available here: "
+					link "examples/icons"
+				end
+			end
+		end
+	end
+
+
+	row do
+		col 12 do
+			ibox do
+				title "It is also possible to use an accordion"
+
+				display_example <<-TABCODE
+accordion do
+	tab "Dog" do
+		p "Woof" 
+	end
+	tab "Cat" do
+		p "Meow"
+	end
+	tab "Duck" do
+		p "Quack"
+	end
+end
+				TABCODE
+				
+			end
+		end
+	end
+
+
+	row do
+		col 12 do
+			ibox do
+				title "Describing multiple pages in one weave file"
+
+				p "It is possible to describe multiple pages in one weave file. Simply pass it two arguments, the first being the path of the page, and the second the title of the page"
+
+				link_example "multiple_page"
+
+				p "This is usually useful if you are generating a site with multiple pages generated from some data"
+			end
+		end
+	end
+
 end

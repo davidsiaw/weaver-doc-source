@@ -1,0 +1,3 @@
+center_page "Center Page Template" do
+	p "In this template, there no navigation bar, and everything is centered."
+end

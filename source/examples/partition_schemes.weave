@@ -1,0 +1,37 @@
+topnav_page "Partitions" do
+
+	header do
+		col 12 do
+			h2 "Partitions"
+		end
+	end
+
+	row do
+		col 12 do
+			hr
+		end
+	end
+
+	row do
+		half { ibox { p "Half" } }
+		half { ibox { p "Half" } }
+	end
+
+	row do
+		twothirds { ibox { p "Two Thirds" } }
+		third { ibox { p "Third" } }
+	end
+
+	row do
+		third { ibox { p "Third" } }
+		third { ibox { p "Third" } }
+		third { ibox { p "Third" } }
+	end
+
+	row do
+		quarter { ibox { p "Quarter" } }
+		quarter { ibox { p "Quarter" } }
+		quarter { ibox { p "Quarter" } }
+		quarter { ibox { p "Quarter" } }
+	end
+end

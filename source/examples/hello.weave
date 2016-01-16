@@ -1,0 +1,5 @@
+center_page "Hello world" do
+	ibox do
+		h2 "Hello world!"
+	end
+end

@@ -1,0 +1,23 @@
+center_page "Multi-page example" do
+	ibox do
+		h2 "Hello world!"
+		ul style: "text-align:left" do
+			li { link "/examples/multiple_page/page1" }
+			li { link "/examples/multiple_page/page2" } 
+		end
+	end
+end
+
+center_page "page1", "Hello world" do
+	ibox do
+		h2 "Sub page 1"
+		p "This page will have a path of page1"
+	end
+end
+
+center_page "page2", "Hello world" do
+	ibox do
+		h2 "Sub page 2"
+		p "This page will have a path of page2"
+	end
+end
