@@ -2,8 +2,8 @@ center_page "Multi-page example" do
 	ibox do
 		h2 "Hello world!"
 		ul style: "text-align:left" do
-			li { link "/examples/multiple_page/page1" }
-			li { link "/examples/multiple_page/page2" } 
+			li { link "page1" }
+			li { link "page2" } 
 		end
 	end
 end

@@ -4,7 +4,7 @@ git config --global user.name "David Siaw (via Circle CI)"
 
 git clone git@github.com:davidsiaw/weaver-docs.git build
 cp -r build/.git ./gittemp
-bundle exec weaver build
+bundle exec weaver build -r http://davidsiaw.github.io/weaver-docs/
 cp -r ./gittemp build/.git
 pushd build
 git add .
