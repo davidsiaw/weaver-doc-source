@@ -10,7 +10,7 @@ GEM
       tilt (>= 1.3, < 3)
     tilt (2.0.2)
     trollop (2.1.2)
-    weaver (0.2.0)
+    weaver (0.2.1)
       sinatra
       trollop
 
@@ -18,7 +18,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  weaver (= 0.2.0)
+  weaver (= 0.2.1)
 
 BUNDLED WITH
    1.11.2
