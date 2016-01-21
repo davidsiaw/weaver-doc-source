@@ -4,7 +4,7 @@ topnav_page "Weaver Documentation" do
 
 	menu do
 		nav "Static Features", :"th-large", "/"
-		nav "Dynamic Features", :"th-large", "/"
+		nav "Dynamic Features", :"th-large", "/dynamic/"
 	end
 
 	top do
@@ -523,7 +523,209 @@ end
 	row do
 		col 12 do
 			ibox do
-				title "You can make tables easily from an array of Hashes"
+				title "Tables can also be made the standard way"
+
+				display_example <<-TABCODE
+table do
+	thead do
+		th { text "Name" }
+		th { text "Class" }
+	end
+	tr do
+		td { text "Haruhi" }
+		td { text "2-B" } 
+	end
+	tr do
+		td { text "Kyon" }
+		td { text "2-B" } 
+	end
+	tr do
+		td { text "Mikuru" }
+		td { text "3-A" } 
+	end
+end
+				TABCODE
+				
+			end
+		end
+	end
+
+	row do
+		col 12 do
+			ibox do
+				title "Bordered style"
+
+				p "You can mix and match styles"
+
+				display_example <<-TABCODE
+table bordered: true do
+	thead do
+		th { text "Name" }
+		th { text "Class" }
+	end
+	tr do
+		td { text "Haruhi" }
+		td { text "2-B" } 
+	end
+	tr do
+		td { text "Kyon" }
+		td { text "2-B" } 
+	end
+	tr do
+		td { text "Mikuru" }
+		td { text "3-A" } 
+	end
+end
+				TABCODE
+				
+			end
+		end
+	end
+
+	row do
+		col 12 do
+			ibox do
+				title "Hover style"
+
+				display_example <<-TABCODE
+table hover: true do
+	thead do
+		th { text "Name" }
+		th { text "Class" }
+	end
+	tr do
+		td { text "Haruhi" }
+		td { text "2-B" } 
+	end
+	tr do
+		td { text "Kyon" }
+		td { text "2-B" } 
+	end
+	tr do
+		td { text "Mikuru" }
+		td { text "3-A" } 
+	end
+end
+				TABCODE
+				
+			end
+		end
+	end
+
+	row do
+		col 12 do
+			ibox do
+				title "Striped style"
+
+				display_example <<-TABCODE
+table striped: true do
+	thead do
+		th { text "Name" }
+		th { text "Class" }
+	end
+	tr do
+		td { text "Haruhi" }
+		td { text "2-B" } 
+	end
+	tr do
+		td { text "Kyon" }
+		td { text "2-B" } 
+	end
+	tr do
+		td { text "Mikuru" }
+		td { text "3-A" } 
+	end
+end
+				TABCODE
+				
+			end
+		end
+	end
+
+	row do
+		col 12 do
+			ibox do
+				title "Data Table"
+
+				p "Data table JQuery plugin"
+
+				display_example <<-TABCODE
+table system: :data_table do
+	thead do
+		th { text "Name" }
+		th { text "Class" }
+	end
+	tr do
+		td { text "Haruhi" }
+		td { text "2-B" } 
+	end
+	tr do
+		td { text "Kyon" }
+		td { text "2-B" } 
+	end
+	tr do
+		td { text "Mikuru" }
+		td { text "3-A" } 
+	end
+end
+				TABCODE
+				footer do
+					p "Supported systems are :data_table and :foo_table"
+				end
+			end
+		end
+	end
+
+	row do
+		col 12 do
+			ibox do
+				title "Foo Table"
+				
+				p "Foo Table plugin"
+
+				display_example <<-TABCODE
+table system: :foo_table do
+	thead do
+		th { text "Name" }
+		th { text "Class" }
+		th :"data-hide" => :all do
+			text "Info"
+		end
+		th :"data-hide" => :all do
+			text "Power"
+		end
+	end
+	tr do
+		td { text "Haruhi" }
+		td { text "2-B" } 
+		td { text "Uninterested in humans" }
+		td { text "Reality change" }
+	end
+	tr do
+		td { text "Kyon" }
+		td { text "2-B" } 
+		td { text "Is the real God" }
+		td { text "Control over Haruhi" }
+	end
+	tr do
+		td { text "Mikuru" }
+		td { text "3-A" } 
+		td { text "Classified information" }
+		td { text "Classified information" }
+	end
+end
+				TABCODE
+				footer do
+					p "Supported systems are :data_table and :foo_table"
+				end
+			end
+		end
+	end
+
+	row do
+		col 12 do
+			ibox do
+				title "You can make also tables easily from an array of Hashes"
 
 				display_example <<-TABCODE
 table_from_hashes [
@@ -540,6 +742,25 @@ table_from_hashes [
 		end
 	end
 
+	row do
+		col 12 do
+			ibox do
+				title "You can also use the styles available to tables"
+
+				display_example <<-TABCODE
+table_from_hashes [
+	{name: "Haruhi", age: 17, class: "2-B"},
+	{name: "Mikuru", age: 18, class: "3-A"},
+	{name: "Kyon", age: 17, class: "2-B"},
+	{name: "Nagato", age: 17, class: "2-A"},
+	{name: "Itsuki", age: 17, class: "2-C"},
+	{name: "Tsuruya", age: 18, class: "3-A"}
+], bordered: true, striped: true
+				TABCODE
+				
+			end
+		end
+	end
 
 	row do
 		col 12 do
