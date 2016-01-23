@@ -44,6 +44,7 @@ end
 				display_example <<-STUFF
 form do
 	textfield "email", "Email"
+	textfield "ip", "IP Address", mask: "999.999.999.999"
 	passwordfield "pass", "Password"
 	checkbox "haro", "Hello"
 
@@ -58,6 +59,10 @@ form do
 		"London",
 		"Paris"
 	]
+
+	knob "percent"
+
+	knob "tenths", step: 10, min:0, max:100
 
 	dropdown "people", "Select People", [
 		"Kyon",
