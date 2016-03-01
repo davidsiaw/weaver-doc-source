@@ -1,3 +1,3 @@
 source "https://rubygems.org"
 
-gem "weaver", path: "/Users/david/programs/weaver"
+gem "weaver", "0.2.2"

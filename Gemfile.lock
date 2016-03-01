@@ -1,10 +1,3 @@
-PATH
-  remote: /Users/david/programs/weaver
-  specs:
-    weaver (0.2.2)
-      sinatra
-      trollop
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -17,12 +10,15 @@ GEM
       tilt (>= 1.3, < 3)
     tilt (2.0.2)
     trollop (2.1.2)
+    weaver (0.2.2)
+      sinatra
+      trollop
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  weaver!
+  weaver (= 0.2.2)
 
 BUNDLED WITH
    1.11.2
