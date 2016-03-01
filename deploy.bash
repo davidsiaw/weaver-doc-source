@@ -1,6 +1,14 @@
 #!/bin/bash
-git config --global user.email "davidsiaw@gmail.com"
-git config --global user.name "David Siaw (via Circle CI)"
+
+if [ "$TRAVIS" == "true" ]; then
+	git config --global user.email "davidsiaw@gmail.com"
+	git config --global user.name "David Siaw (via Travis CI)"
+elif [ "$CIRCLECI" == "true" ]; then
+	git config --global user.email "davidsiaw@gmail.com"
+	git config --global user.name "David Siaw (via Circle CI)"
+else
+	echo no ci
+fi
 
 git clone git@github.com:davidsiaw/weaver-docs.git build
 cp -r build/.git ./gittemp

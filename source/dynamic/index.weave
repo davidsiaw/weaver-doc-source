@@ -1,0 +1,230 @@
+include "../main.rb"
+
+topnav_page "Weaver Documentation" do
+
+	menu do
+		nav "Static Features", :"th-large", "/"
+		nav "Dynamic Features", :"th-large", "/dynamic"
+	end
+
+	top do
+		text <<-GITHUBRIBBON
+		<a href="https://github.com/davidsiaw/weaver"><img style="position: absolute; z-index: 100; top: 50px; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+		GITHUBRIBBON
+		
+	end
+
+	header do
+		col 12 do
+			h2 "Welcome to Weaver"
+			hr
+			p "The following is a rough documentation of the dynamic features of weaver"
+		end
+	end
+
+	row do
+		col 12 do
+			ibox do
+				title "Button action"
+
+				display_example <<-STUFF
+button "Click me" do
+	script "alert('hello')"
+end
+				STUFF
+			end
+		end
+	end
+
+	row do
+		col 12 do
+			ibox do
+				title "Form"
+
+				display_example <<-STUFF
+form do
+	textfield "email", "Email"
+	textfield "ip", "IP Address", mask: "999.999.999.999"
+	passwordfield "pass", "Password"
+	checkbox "haro", "Hello"
+
+	radio "options", [
+		{label:"Option 1",value:"x1"}, 
+		{label:"Option 2",value:"x3"}, 
+		{label:"Option 3",value:"x5"}
+	]
+
+	dropdown "cities", "Select City", [
+		"Tokyo",
+		"London",
+		"Paris"
+	]
+
+	knob "percent"
+
+	knob "tenths", step: 10, min:0, max:100
+
+	dropdown "people", "Select People", [
+		"Kyon",
+		"Haruhi",
+		"Nagato",
+		"Mikuru",
+		"Tsuruya"
+	], multiple: true
+
+	submit "See form contents" do
+		script "alert(JSON.stringify(data));" 
+	end
+end
+				STUFF
+			end
+		end
+	end
+
+	row do
+		col 12 do
+			ibox do
+				title "Dynamic Table"
+
+				p "Dynamic tables take json information from a URL and displays it in table form"
+
+				link_example "data1"
+
+				display_example <<-STUFF
+table_from_source "../examples/data1/"
+				STUFF
+
+
+
+			end
+		end
+	end
+
+	row do
+		col 12 do
+			ibox do
+				title "Dynamic Table with an array"
+
+				p "If the input is an array it will attempt to display all the information in that array"
+
+				link_example "data2"
+
+				display_example <<-STUFF
+table_from_source "../examples/data2/"
+				STUFF
+
+
+			end
+		end
+	end
+
+	row do
+		col 12 do
+			ibox do
+				title "Dynamic Table with named columns"
+
+				p "You can specify the columns that you want to show"
+
+				link_example "data2"
+
+				display_example <<-STUFF
+table_from_source "../examples/data2/", columns: ["name", "color"]
+				STUFF
+
+
+			end
+		end
+	end
+
+	row do
+		col 12 do
+			ibox do
+				title "Dynamic Table with named columns"
+
+				p "You can specify the header looks too"
+
+				link_example "data2"
+
+				display_example <<-STUFF
+table_from_source "../examples/data2/" do
+	column "name", title: "Idol Name"
+	column "age", title: "Idol Age"
+end
+				STUFF
+
+			end
+		end
+	end
+
+	row do
+		col 12 do
+			ibox do
+				title "Dynamic Table with icon columns"
+
+				p "You can specify the header looks too"
+
+				link_example "data2"
+
+				display_example <<-STUFF
+table_from_source "../examples/data2/" do
+	column "name", title: "Idol Name"
+	column "age", title: "Idol Age", icon: :calendar
+end
+				STUFF
+
+			end
+		end
+	end
+
+	row do
+		col 12 do
+			ibox do
+				title "Dynamic Table with custom columns"
+
+				p "You can specify the what the cells of each column looks like too."
+
+				p "The ###something### is replaced with the name of the member inside the object"
+
+				link_example "data3"
+
+				display_example <<-STUFF
+table_from_source "../examples/data3/" do
+	column "name", title: "Idol Name"
+	column "age", title: "Idol Age", icon: :calendar 
+	column "color", title: "Idol Color", icon: :eye do
+		badge "###color###", style:"background-color:###color###; color:###inv_color###"
+	end
+end
+				STUFF
+
+			end
+		end
+	end
+
+	row do
+		col 12 do
+			ibox do
+				title "Dynamic Table with buttons that access row data"
+
+				p "You can create data buttons that can access the row data and allow you to access the information on the row"
+
+				link_example "data2"
+
+				display_example <<-STUFF
+table_from_source "../examples/data2/" do
+	column "name", title: "Idol Name"
+	column "age", title: "Idol Age", icon: :calendar
+	column "button", title: "Button" do 
+		data_button "###name###" do
+			script "alert(JSON.stringify(data))"
+		end
+	end
+end
+				STUFF
+
+			end
+		end
+	end
+
+end
+

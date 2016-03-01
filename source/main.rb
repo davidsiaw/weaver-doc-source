@@ -3,7 +3,7 @@ def link_example(name)
 		content File.read("source/examples/#{name}.weave")
 	end
 
-	link "examples/#{name}/", "See it in action"
+	link "/examples/#{name}/", "See it in action"
 end
 
 def display_example(weaver_code)

@@ -1,0 +1,7 @@
+empty_page "Empty Page Template" do
+	p "In this template, there no navigation bar and no structure. This is the most basic kind of page"
+
+	ibox do
+		p "Stuff in an ibox to show the width of the page"
+	end
+end
