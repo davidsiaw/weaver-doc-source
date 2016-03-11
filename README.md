@@ -1,5 +1,7 @@
 # weaver-doc-source
 
+[![Circle CI](https://circleci.com/gh/davidsiaw/weaver-doc-source.svg?style=svg)](https://circleci.com/gh/davidsiaw/weaver-doc-source)
+
 Sources for weaver documentation, written in weaver itself.
 
 In order to edit and preview this documentation on your own PC, simply clone the sources
