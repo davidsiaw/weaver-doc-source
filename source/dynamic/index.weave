@@ -28,7 +28,7 @@ topnav_page "Weaver Documentation" do
 				title "Button action"
 
 				display_example <<-STUFF
-button "Click me" do
+normal_button "Click me" do
 	script "alert('hello')"
 end
 				STUFF
@@ -42,7 +42,7 @@ end
 				title "Form"
 
 				display_example <<-STUFF
-form do
+wform do
 	textfield "email", "Email"
 	textfield "ip", "IP Address", mask: "999.999.999.999"
 	passwordfield "pass", "Password"

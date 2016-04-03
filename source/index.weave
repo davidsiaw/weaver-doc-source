@@ -359,7 +359,8 @@ end
 				title "There are buttons"
 
 				display_example <<-TABCODE
-button nil, "Normal Button"; br
+button "Original Html Button"; br
+normal_button nil, "Normal Button"; br
 block_button nil, "Block Button"; br
 outline_button nil, "Outline Button"; br
 big_button nil, "Big Button"; br
