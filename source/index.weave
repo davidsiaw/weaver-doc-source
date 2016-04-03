@@ -16,7 +16,7 @@ topnav_page "Weaver Documentation" do
 
 	header do
 		col 12 do
-			h2 "Welcome to Weaver"
+			h2 "Welcome to Weaver #{Weaver::VERSION}"
 			hr
 			p "The following is a rough documentation intended to simply demonstrate and enumerate the facilities provided by weaver"
 
