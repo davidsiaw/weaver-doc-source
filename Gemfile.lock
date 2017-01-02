@@ -21,7 +21,7 @@ GEM
     trollop (2.1.2)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    weaver (0.5.0)
+    weaver (0.5.1)
       activesupport
       sinatra
       trollop
@@ -30,7 +30,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  weaver (= 0.5.0)
+  weaver (= 0.5.1)
 
 BUNDLED WITH
    1.12.5
