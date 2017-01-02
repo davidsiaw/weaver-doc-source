@@ -84,6 +84,117 @@ end
 	row do
 		col 12 do
 			ibox do
+				title "Form elements with default values (refresh to reset)"
+
+				display_example <<-STUFF
+wform do
+	textfield "service_name", "Service Name", value: "google"
+
+	radio "options", [
+		{label:"Option 1",value:"x1"}, 
+		{label:"Option 2",value:"x3"}, 
+		{label:"Option 3",value:"x5"}
+	], value: "x5"
+
+	dropdown "cities", "Select City", [
+		"Tokyo",
+		"London",
+		"Paris",
+		"Berlin",
+		"New York"
+	], value: "London"
+
+	submit "See form contents" do
+		script "alert(JSON.stringify(data));" 
+	end
+
+end
+				STUFF
+			end
+		end
+	end
+
+	row do
+		col 12 do
+			ibox do
+				title "Customizing submit button"
+
+				display_example <<-STUFF
+wform do
+
+	hiddenfield "name", "Mewtwo"
+
+	submit "Normal" do
+		script "alert(JSON.stringify(data));" 
+	end
+
+	submit "Block version", block:true do
+		script "alert(JSON.stringify(data));" 
+	end
+
+	br
+
+	submit "Outline version", outline:true do
+		script "alert(JSON.stringify(data));" 
+	end
+
+	br
+
+	submit "3D version", threedee:true do
+		script "alert(JSON.stringify(data));" 
+	end
+
+	br
+
+	submit :ambulance, bigthreedee:true do
+		script "alert(JSON.stringify(data));" 
+	end
+
+	br
+
+	submit "Words", rounded:true do
+		script "alert(JSON.stringify(data));" 
+	end
+
+	br
+
+	submit :user, circle:true do
+		script "alert(JSON.stringify(data));" 
+	end
+
+end
+				STUFF
+			end
+		end
+	end
+
+	row do
+		col 12 do
+			ibox do
+				title "Radio buttons"
+
+				display_example <<-STUFF
+wform do
+
+	radio "options", [
+		{label:"Option 1",value:"x1"}, 
+		{label:"Option 2",value:"x3"}, 
+		{label:"Option 3",value:"x5"}
+	], value: "x5", form: :button
+
+	submit "See form contents" do
+		script "alert(JSON.stringify(data));" 
+	end
+
+end
+				STUFF
+			end
+		end
+	end
+
+	row do
+		col 12 do
+			ibox do
 				title "Dynamic Table"
 
 				p "Dynamic tables take json information from a URL and displays it in table form"
