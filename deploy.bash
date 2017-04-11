@@ -7,12 +7,12 @@ elif [ "$CIRCLECI" == "true" ]; then
 	git config --global user.email "davidsiaw@gmail.com"
 	git config --global user.name "David Siaw (via Circle CI)"
 else
-	echo no ci
+	echo Not CI Environment
 fi
 
 git clone git@github.com:davidsiaw/weaver-docs.git build
 cp -r build/.git ./gittemp
-bundle exec weaver build -r http://davidsiaw.github.io/weaver-docs/
+ruby gettags.rb
 cp -r ./gittemp build/.git
 pushd build
 git add .
