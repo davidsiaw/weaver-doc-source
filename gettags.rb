@@ -48,3 +48,5 @@ gem "weaver", path: "#{`pwd`.chomp}/weaver-tmp"
 	`cd doc-tmp; bundle install; bundle exec weaver build -r http://davidsiaw.github.io/weaver-docs/#{x[:tag]}/`
 	FileUtils.cp_r("doc-tmp/build", "build/#{x[:tag]}")
 end
+`rm -rf doc-tmp`
+`rm -rf weaver-tmp`
