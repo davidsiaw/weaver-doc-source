@@ -50,6 +50,9 @@ gem "weaver", path: "#{`pwd`.chomp}/weaver-tmp"
 	file1 = File.read("#{`pwd`.chomp}/weaver-tmp/exe/weaver").gsub('Gem.datadir("weaver")', 'File.join(Gem.loaded_specs["weaver"].full_gem_path, "data", "weaver")')
 	File.write("#{`pwd`.chomp}/weaver-tmp/exe/weaver", file1)
 
+	file2 = File.read("#{`pwd`.chomp}/doc-tmp/source/examples/icons.weave").gsub('Gem.datadir("weaver")', 'File.join(Gem.loaded_specs["weaver"].full_gem_path, "data", "weaver")')
+	File.write("#{`pwd`.chomp}/doc-tmp/source/examples/icons.weave", file2)
+
 	`cd doc-tmp; bundle install; bundle exec weaver build -r http://davidsiaw.github.io/weaver-docs/#{x[:tag]}/`
 	FileUtils.cp_r("doc-tmp/build", "build/#{x[:tag]}")
 end
