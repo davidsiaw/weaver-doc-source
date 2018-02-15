@@ -1,3 +1,3 @@
 source "https://rubygems.org"
 
-gem "weaver", "0.5.2"
+gem "weaver", "0.6.0"

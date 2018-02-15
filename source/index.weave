@@ -18,7 +18,7 @@ topnav_page "Weaver Documentation" do
 			p "The following is a rough documentation intended to simply demonstrate and enumerate the facilities provided by weaver"
 
 			p "This documentation page is written in Weaver too! See"
-			link "https://github.com/davidsiaw/weaver-doc-source"
+			hyperlink "https://github.com/davidsiaw/weaver-doc-source"
 		end
 	end
 
@@ -209,6 +209,25 @@ end
 	row do
 		col 12 do
 			ibox do
+				title "AsciiMath"
+
+				p "There is support for AsciiMath"
+
+				display_example <<-STUFF
+p "`sum_(i=1)^n i^3=((n(n+1))/2)^2`"
+				STUFF
+
+				footer do 
+					text "See AsciiMath syntax here: "
+					hyperlink "http://asciimath.org/#syntax"
+				end
+			end
+		end
+	end
+
+	row do
+		col 12 do
+			ibox do
 				title "Icons"
 
 				p "There are icons available in here since the theme uses bootstrap"
@@ -223,7 +242,7 @@ text "User"
 
 				footer do 
 					text "A list of all icons are available here: "
-					link "examples/icons"
+					hyperlink "examples/icons"
 				end
 			end
 		end
@@ -547,10 +566,6 @@ tabs do
 end
 				TABCODE
 
-				footer do 
-					text "A list of all icons are available here: "
-					link "examples/icons"
-				end
 			end
 		end
 	end
