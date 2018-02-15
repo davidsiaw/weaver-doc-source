@@ -2,10 +2,7 @@ include "../main.rb"
 
 topnav_page "Weaver Documentation" do
 
-	menu do
-		nav "Static Features", :"th-large", "/"
-		nav "Dynamic Features", :"th-large", "/dynamic"
-	end
+	create_menu
 
 	top do
 		text <<-GITHUBRIBBON
@@ -80,6 +77,29 @@ end
 			end
 		end
 	end
+
+	row do
+		col 12 do
+			ibox do
+				title "Textfield features"
+
+				display_example <<-STUFF
+wform do
+	textfield "twitter", "Twitter Handle", placeholder: "google", front_text: "@"
+	textfield "cents", "Cents", placeholder: "125", back_text: "¢"
+	textfield "tracking_no", "Tracking Number", placeholder: "A53GBAW23", front_text: "EM", back_text: "JP"
+
+
+	submit "See form contents" do
+		script "alert(JSON.stringify(data));" 
+	end
+
+end
+				STUFF
+			end
+		end
+	end
+
 
 	row do
 		col 12 do

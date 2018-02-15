@@ -20,5 +20,22 @@ def display_example(weaver_code)
 		end
 	end
 
+end
 
+def create_menu
+
+	menu do
+		nav "Static Features", :"th-large", "/"
+		nav "Dynamic Features", :"th-large", "/dynamic/"
+		nav "Other Versions", :"th" do
+			versions = ["#{Weaver::VERSION}"]
+			if File.exists? "available_versions"
+				versions = File.read("available_versions").split("\n")
+			end
+			versions.each do |ver|
+				nav ver, :"", "/#{ver}"
+			end
+		end
+	end
+	
 end
