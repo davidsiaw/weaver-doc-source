@@ -1,0 +1,12 @@
+center_page "Adding your own JavaScript" do
+
+	request_js "js/myscript.js"
+
+	p "Example for adding your own JavaScript"
+
+	ibox do
+		normal_button "Click me" do
+			script "say_something()"
+		end
+	end
+end

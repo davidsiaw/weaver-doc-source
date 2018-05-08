@@ -28,12 +28,23 @@ def create_menu
 		nav "Static Features", :"th-large", "/"
 		nav "Dynamic Features", :"th-large", "/dynamic/"
 		nav "Other Versions", :"th" do
-			versions = ["#{Weaver::VERSION}"]
+			versions = ["v#{Weaver::VERSION}"]
 			if File.exists? "available_versions"
 				versions = File.read("available_versions").split("\n")
 			end
 			versions.each do |ver|
-				nav ver, :"", "/#{ver}"
+
+				velem = Weaver::Elements.new(self, @anchors)
+				if "v#{Weaver::VERSION}" == ver
+					velem.instance_eval do
+						b ver
+					end
+				else
+					velem.instance_eval do
+						text ver
+					end
+				end
+				nav velem.generate, :check, "http://davidsiaw.github.io/weaver-docs/#{ver}"
 			end
 		end
 	end

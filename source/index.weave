@@ -42,7 +42,7 @@ topnav_page "Weaver Documentation" do
 	row do
 		col 12 do
 			ibox do
-				title "Creating a new weaver site"
+				title "Getting Started"
 
 				pre "weaver create my_site"
 
@@ -52,19 +52,36 @@ topnav_page "Weaver Documentation" do
 my_site/
 ├── Gemfile
 ├── Gemfile.lock
+├── cache
+├── js
+├── css
 ├── images
 └── source
     └── index.weave
 
 				TREE
 
-				p "Weave files are where you describe websites. To preview your site, simply go"
+				p "Go to your website directory and install its dependencies:"
 
 				pre <<-COMMANDS
 cd my_site
 bundle install
+				COMMANDS
+
+
+				p "Weave files are where you describe websites. To preview your site, simply go"
+
+				pre <<-COMMANDS
 bundle exec weaver
 				COMMANDS
+
+				p "By default weaver binds to port 4567, but you can change that by going:"
+
+				pre <<-COMMANDS
+PORT=8080 bundle exec weaver
+				COMMANDS
+
+				p "Easy!"
 
 			end
 		end
@@ -257,6 +274,74 @@ text "User"
 breadcrumb ["root", "some", "directory"]
 				STUFF
 
+			end
+		end
+	end
+
+	row do
+		col 12 do
+			ibox do
+				title "CSS"
+
+				p "If you want to add your own CSS:"
+
+				syntax :css do
+					content File.read("css/mystyle.css")
+				end
+
+				p "Use the request_css function:"
+
+				link_example "css"
+
+				footer do
+					p "CSS files are placed in the css folder by convention"
+
+					pre <<-TREE
+my_site/
+├── Gemfile
+├── Gemfile.lock
+├── css   <-------------- here
+│   └── mystyle.css
+└── source
+    └── index.weave
+
+					TREE
+				end
+			end
+		end
+	end
+
+	row do
+		col 12 do
+			ibox do
+				title "JavaScript"
+
+				p "If you want to add your own JavaScript files:"
+
+				syntax :javascript do
+					content File.read("js/myscript.js")
+				end
+
+				p "Use the request_js function:"
+
+				link_example "js"
+
+				p "We encourage putting your JavaScript in .js files so you don't clutter your presentation with code"
+
+				footer do
+					p "JavaScript files are placed in the js folder by convention"
+
+					pre <<-TREE
+my_site/
+├── Gemfile
+├── Gemfile.lock
+├── js   <-------------- here
+│   └── myscript.js
+└── source
+    └── index.weave
+
+					TREE
+				end
 			end
 		end
 	end

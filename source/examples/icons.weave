@@ -1,51 +1,51 @@
-topnav_page "Icons" do
+nonnav_page "Icons" do
 
-	contents = File.read(File.join(Gem.datadir("weaver"), "font-awesome", "less", "icons.less")).split "\n"
+    contents = File.read(File.join(Gem.loaded_specs['weaver'].full_gem_path, "data", "weaver", "font-awesome", "less", "icons.less")).split "\n"
 
-	regex = /^\.\@\{fa-css-prefix\}-(?<name>[a-z\-]+)/m
+    regex = /^\.\@\{fa-css-prefix\}-(?<name>[a-z0-9\-]+)/m
 
-	icon_names = []
-	contents.each do |x|
+    icon_names = []
+    contents.each do |x|
 
-		m = regex.match(x)
-		if m
-			icon_names << "#{m[:name]}"
-		end
-	end
-	icon_names.sort!
+        m = regex.match(x)
+        if m
+            icon_names << "#{m[:name]}"
+        end
+    end
+    icon_names.sort!
 
-	icon_groups = [[],[],[],[]]
+    icon_groups = [[],[],[],[]]
 
-	count = 0
-	icon_names.each do |x|
-		icon_groups[count % 4] << x
-		count = count + 1
-	end
+    count = 0
+    icon_names.each do |x|
+        icon_groups[count % 2] << x
+        count = count + 1
+    end
 
-	row do 
-		col 12 do
-			ibox do
-				h2 "Icon list"
-			end
-		end
-	end
+    row do 
+        col 12 do
+            ibox do
+                h2 "Icon list"
+            end
+        end
+    end
 
 
-	row do
-		for i in 0..3
-			quarter do
-				ibox do
-					table do
-						icon_groups[i].each do |x|
-							tr style:"font-size:1.5em" do
-								td { icon x.to_sym }
-								td { text x }
-							end
-						end
-					end
-				end
-			end
-		end
-	end
+    row do
+        for i in 0..1
+            half do
+                ibox do
+                    table do
+                        icon_groups[i].each do |x|
+                            tr style:"font-size:1.5em" do
+                                td { icon x.to_sym }
+                                td { text x }
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
 
 end
