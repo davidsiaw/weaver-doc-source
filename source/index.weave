@@ -439,6 +439,16 @@ end
 				hr
 				link_example "sidenav_page"
 
+				hr 
+
+				h3 "Navigation page brands"
+
+				p "You can also add a brand section to pages with navigation. The brand is just a link to home."
+
+				link_example "topnav_page_with_brand"
+				hr
+				link_example "sidenav_page_with_brand"
+
 			end
 		end
 	end
