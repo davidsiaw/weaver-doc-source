@@ -857,10 +857,10 @@ table system: :foo_table do
 	thead do
 		th { text "Name" }
 		th { text "Class" }
-		th :"data-hide" => :all do
+		th :"data-breakpoints" => :all do
 			text "Info"
 		end
-		th :"data-hide" => :all do
+		th :"data-breakpoints" => :all do
 			text "Power"
 		end
 	end
