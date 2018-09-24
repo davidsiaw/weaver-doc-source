@@ -231,7 +231,20 @@ end
 				p "There is support for AsciiMath"
 
 				display_example <<-STUFF
-p "`sum_(i=1)^n i^3=((n(n+1))/2)^2`"
+math "sum_(i=1)^n i^3=((n(n+1))/2)^2"
+				STUFF
+
+				hr
+
+				title "AsciiMath 2"
+
+				p "Math is basically text"
+
+				display_example <<-STUFF
+text "The formula is thus: "
+math "x = 10 / y"
+text " hence we can see that "
+math "x = 5"
 				STUFF
 
 				footer do 
@@ -241,6 +254,7 @@ p "`sum_(i=1)^n i^3=((n(n+1))/2)^2`"
 			end
 		end
 	end
+
 
 	row do
 		col 12 do
