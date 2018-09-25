@@ -46,7 +46,7 @@ def create_menu
 				end
 				nav velem.generate, :check, "http://davidsiaw.github.io/weaver-docs/#{ver}"
 			end
-		end
+		end if ENV["VERSION_LIST"]
 	end
 	
 end
