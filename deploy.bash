@@ -12,7 +12,8 @@ fi
 
 git clone git@github.com:davidsiaw/weaver-docs.git build
 cp -r build/.git ./gittemp
-ruby gettags.rb
+#ruby gettags.rb
+bundle exec weaver build -r http://davidsiaw.github.io/weaver-docs/
 cp -r ./gittemp build/.git
 pushd build
 git add .
