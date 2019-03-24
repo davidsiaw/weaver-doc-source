@@ -28,12 +28,6 @@ Security/Eval:
   Exclude:
     - 'source/main.rb'
 
-# Offense count: 1
-# Cop supports --auto-correct.
-Style/IfUnlessModifier:
-  Exclude:
-    - 'source/main.rb'
-
 # Offense count: 6
 # Configuration parameters: AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.
 # URISchemes: http, https
