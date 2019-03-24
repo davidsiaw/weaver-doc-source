@@ -312,4 +312,27 @@ topnav_page 'Weaver Documentation' do
       end
     end
   end
+
+  row do
+    col 12 do
+      ibox do
+        title 'Modal Dialog'
+        display_example <<~STUFF
+          modal "a_dialog" do
+            header { h4 "Some title header" }
+            body { p "Some long message" }
+            footer do
+              normal_button "Button" do
+                script "$('#a_dialog').modal('hide');"
+              end
+            end
+          end
+
+          normal_button "Show Modal" do
+            script "$('#a_dialog').modal('show');"
+          end
+        STUFF
+      end
+    end
+  end
 end

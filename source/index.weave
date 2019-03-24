@@ -7,7 +7,7 @@ topnav_page 'Weaver Documentation' do
 
   top do
     text <<-GITHUBRIBBON
-		<a href="https://github.com/davidsiaw/weaver"><img style="position: absolute; z-index: 100; top: 50px; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+    <a href="https://github.com/davidsiaw/weaver"><img style="position: absolute; z-index: 100; top: 50px; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
     GITHUBRIBBON
   end
 
@@ -178,9 +178,9 @@ topnav_page 'Weaver Documentation' do
 
         display_example <<~STUFF
           h3 style:"text-decoration:underline" do
-          	span "Some text "
-          	span "colored ", style:"color:blue"
-          	span "red ", style:"color:red"
+            span "Some text "
+            span "colored ", style:"color:blue"
+            span "red ", style:"color:red"
           end
         STUFF
       end
@@ -196,14 +196,14 @@ topnav_page 'Weaver Documentation' do
 
         display_example <<~STUFF
           ul do
-          	li { text "Haruhi" }
-          	li { text "Kyon" }
-          	li { text "Itsuki" }
+            li { text "Haruhi" }
+            li { text "Kyon" }
+            li { text "Itsuki" }
           end
            ol do
-          	li { text "Nagato" }
-          	li { text "Mikuru" }
-          	li { text "Tsuruya" }
+            li { text "Nagato" }
+            li { text "Mikuru" }
+            li { text "Tsuruya" }
           end
         STUFF
 
@@ -401,12 +401,12 @@ topnav_page 'Weaver Documentation' do
 
         display_example <<~STUFF
           syntax :javascript do
-          	content <<-SOME_CODE
-          function a()
-          {
-          	return 0;
-          }
-          SOME_CODE
+            content <<~SOME_CODE
+              function a()
+              {
+                return 0;
+              }
+            SOME_CODE
           end
         STUFF
       end
@@ -495,39 +495,39 @@ topnav_page 'Weaver Documentation' do
 
         display_example <<~TABCODE
           ibox do
-          	type :panel
-          	title "Panel"
-          	p "Some content"
+            type :panel
+            title "Panel"
+            p "Some content"
           end
            ibox do
-          	type :primary
-          	title "Primary"
-          	p "Some content"
+            type :primary
+            title "Primary"
+            p "Some content"
           end
            ibox do
-          	type :success
-          	title "Success"
-          	p "Some content"
+            type :success
+            title "Success"
+            p "Some content"
           end
            ibox do
-          	type :info
-          	title "Info"
-          	p "Some content"
+            type :info
+            title "Info"
+            p "Some content"
           end
            ibox do
-          	type :warning
-          	title "Warning"
-          	p "Some content"
+            type :warning
+            title "Warning"
+            p "Some content"
           end
            ibox do
-          	type :danger
-          	title "Danger"
-          	p "Some content"
+            type :danger
+            title "Danger"
+            p "Some content"
           end
            ibox do
-          	type :blank
-          	title "Blank"
-          	p "Some content"
+            type :blank
+            title "Blank"
+            p "Some content"
           end
         TABCODE
       end
@@ -541,7 +541,7 @@ topnav_page 'Weaver Documentation' do
 
         display_example <<~TABCODE
           jumbotron do
-          	h2 "Jumbotron"
+            h2 "Jumbotron"
           end
         TABCODE
       end
@@ -555,30 +555,30 @@ topnav_page 'Weaver Documentation' do
 
         display_example <<~TABCODE
           widget color: :"gray" do
-          	p "gray"
+            p "gray"
           end
           widget color: :"gray" do
-          	widget color: :"white" do
-          		p "white"
-          	end
+            widget color: :"white" do
+              p "white"
+            end
           end
           widget color: :"navy" do
-          	p "navy"
+            p "navy"
           end
           widget color: :"blue" do
-          	p "blue"
+            p "blue"
           end
           widget color: :"lazur" do
-          	p "lazur"
+            p "lazur"
           end
           widget color: :"yellow" do
-          	p "yellow"
+            p "yellow"
           end
           widget color: :"red" do
-          	p "red"
+            p "red"
           end
           widget color: :"black" do
-          	p "black", style: "color:white"
+            p "black", style: "color:white"
           end
         TABCODE
       end
@@ -592,15 +592,15 @@ topnav_page 'Weaver Documentation' do
 
         display_example <<~TABCODE
           tabs do
-          	tab "Dog" do
-          		p "Woof"
-          	end
-          	tab "Cat" do
-          		p "Meow"
-          	end
-          	tab "Duck" do
-          		p "Quack"
-          	end
+            tab "Dog" do
+              p "Woof"
+            end
+            tab "Cat" do
+              p "Meow"
+            end
+            tab "Duck" do
+              p "Quack"
+            end
           end
         TABCODE
       end
@@ -621,16 +621,16 @@ topnav_page 'Weaver Documentation' do
 
         display_example <<~TABCODE
           tabs do
-          	orientation :left
-          	tab "Dog" do
-          		p "Woof"
-          	end
-          	tab "Cat" do
-          		p "Meow"
-          	end
-          	tab "Duck" do
-          		p "Quack"
-          	end
+            orientation :left
+            tab "Dog" do
+              p "Woof"
+            end
+            tab "Cat" do
+              p "Meow"
+            end
+            tab "Duck" do
+              p "Quack"
+            end
           end
         TABCODE
       end
@@ -644,15 +644,15 @@ topnav_page 'Weaver Documentation' do
 
         display_example <<~TABCODE
           tabs do
-          	tab :automobile do
-          		p "Car"
-          	end
-          	tab :train do
-          		p "Subway"
-          	end
-          	tab :bus do
-          		p "Bus"
-          	end
+            tab :automobile do
+              p "Car"
+            end
+            tab :train do
+              p "Subway"
+            end
+            tab :bus do
+              p "Bus"
+            end
           end
         TABCODE
       end
@@ -666,15 +666,15 @@ topnav_page 'Weaver Documentation' do
 
         display_example <<~TABCODE
           accordion do
-          	tab "Dog" do
-          		p "Woof"
-          	end
-          	tab "Cat" do
-          		p "Meow"
-          	end
-          	tab "Duck" do
-          		p "Quack"
-          	end
+            tab "Dog" do
+              p "Woof"
+            end
+            tab "Cat" do
+              p "Meow"
+            end
+            tab "Duck" do
+              p "Quack"
+            end
           end
         TABCODE
       end
@@ -688,22 +688,22 @@ topnav_page 'Weaver Documentation' do
 
         display_example <<~TABCODE
           table do
-          	thead do
-          		th { text "Name" }
-          		th { text "Class" }
-          	end
-          	tr do
-          		td { text "Haruhi" }
-          		td { text "2-B" }
-          	end
-          	tr do
-          		td { text "Kyon" }
-          		td { text "2-B" }
-          	end
-          	tr do
-          		td { text "Mikuru" }
-          		td { text "3-A" }
-          	end
+            thead do
+              th { text "Name" }
+              th { text "Class" }
+            end
+            tr do
+              td { text "Haruhi" }
+              td { text "2-B" }
+            end
+            tr do
+              td { text "Kyon" }
+              td { text "2-B" }
+            end
+            tr do
+              td { text "Mikuru" }
+              td { text "3-A" }
+            end
           end
         TABCODE
       end
@@ -719,22 +719,22 @@ topnav_page 'Weaver Documentation' do
 
         display_example <<~TABCODE
           table bordered: true do
-          	thead do
-          		th { text "Name" }
-          		th { text "Class" }
-          	end
-          	tr do
-          		td { text "Haruhi" }
-          		td { text "2-B" }
-          	end
-          	tr do
-          		td { text "Kyon" }
-          		td { text "2-B" }
-          	end
-          	tr do
-          		td { text "Mikuru" }
-          		td { text "3-A" }
-          	end
+            thead do
+              th { text "Name" }
+              th { text "Class" }
+            end
+            tr do
+              td { text "Haruhi" }
+              td { text "2-B" }
+            end
+            tr do
+              td { text "Kyon" }
+              td { text "2-B" }
+            end
+            tr do
+              td { text "Mikuru" }
+              td { text "3-A" }
+            end
           end
         TABCODE
       end
@@ -748,22 +748,22 @@ topnav_page 'Weaver Documentation' do
 
         display_example <<~TABCODE
           table hover: true do
-          	thead do
-          		th { text "Name" }
-          		th { text "Class" }
-          	end
-          	tr do
-          		td { text "Haruhi" }
-          		td { text "2-B" }
-          	end
-          	tr do
-          		td { text "Kyon" }
-          		td { text "2-B" }
-          	end
-          	tr do
-          		td { text "Mikuru" }
-          		td { text "3-A" }
-          	end
+            thead do
+              th { text "Name" }
+              th { text "Class" }
+            end
+            tr do
+              td { text "Haruhi" }
+              td { text "2-B" }
+            end
+            tr do
+              td { text "Kyon" }
+              td { text "2-B" }
+            end
+            tr do
+              td { text "Mikuru" }
+              td { text "3-A" }
+            end
           end
         TABCODE
       end
@@ -777,22 +777,22 @@ topnav_page 'Weaver Documentation' do
 
         display_example <<~TABCODE
           table striped: true do
-          	thead do
-          		th { text "Name" }
-          		th { text "Class" }
-          	end
-          	tr do
-          		td { text "Haruhi" }
-          		td { text "2-B" }
-          	end
-          	tr do
-          		td { text "Kyon" }
-          		td { text "2-B" }
-          	end
-          	tr do
-          		td { text "Mikuru" }
-          		td { text "3-A" }
-          	end
+            thead do
+              th { text "Name" }
+              th { text "Class" }
+            end
+            tr do
+              td { text "Haruhi" }
+              td { text "2-B" }
+            end
+            tr do
+              td { text "Kyon" }
+              td { text "2-B" }
+            end
+            tr do
+              td { text "Mikuru" }
+              td { text "3-A" }
+            end
           end
         TABCODE
       end
@@ -808,22 +808,22 @@ topnav_page 'Weaver Documentation' do
 
         display_example <<~TABCODE
           table system: :data_table do
-          	thead do
-          		th { text "Name" }
-          		th { text "Class" }
-          	end
-          	tr do
-          		td { text "Haruhi" }
-          		td { text "2-B" }
-          	end
-          	tr do
-          		td { text "Kyon" }
-          		td { text "2-B" }
-          	end
-          	tr do
-          		td { text "Mikuru" }
-          		td { text "3-A" }
-          	end
+            thead do
+              th { text "Name" }
+              th { text "Class" }
+            end
+            tr do
+              td { text "Haruhi" }
+              td { text "2-B" }
+            end
+            tr do
+              td { text "Kyon" }
+              td { text "2-B" }
+            end
+            tr do
+              td { text "Mikuru" }
+              td { text "3-A" }
+            end
           end
         TABCODE
         footer do
@@ -842,34 +842,34 @@ topnav_page 'Weaver Documentation' do
 
         display_example <<~TABCODE
           table system: :foo_table do
-          	thead do
-          		th { text "Name" }
-          		th { text "Class" }
-          		th :"data-breakpoints" => :all do
-          			text "Info"
-          		end
-          		th :"data-breakpoints" => :all do
-          			text "Power"
-          		end
-          	end
-          	tr do
-          		td { text "Haruhi" }
-          		td { text "2-B" }
-          		td { text "Uninterested in humans" }
-          		td { text "Reality change" }
-          	end
-          	tr do
-          		td { text "Kyon" }
-          		td { text "2-B" }
-          		td { text "Is the real God" }
-          		td { text "Control over Haruhi" }
-          	end
-          	tr do
-          		td { text "Mikuru" }
-          		td { text "3-A" }
-          		td { text "Classified information" }
-          		td { text "Classified information" }
-          	end
+            thead do
+              th { text "Name" }
+              th { text "Class" }
+              th :"data-breakpoints" => :all do
+                text "Info"
+              end
+              th :"data-breakpoints" => :all do
+                text "Power"
+              end
+            end
+            tr do
+              td { text "Haruhi" }
+              td { text "2-B" }
+              td { text "Uninterested in humans" }
+              td { text "Reality change" }
+            end
+            tr do
+              td { text "Kyon" }
+              td { text "2-B" }
+              td { text "Is the real God" }
+              td { text "Control over Haruhi" }
+            end
+            tr do
+              td { text "Mikuru" }
+              td { text "3-A" }
+              td { text "Classified information" }
+              td { text "Classified information" }
+            end
           end
         TABCODE
         footer do
@@ -886,12 +886,12 @@ topnav_page 'Weaver Documentation' do
 
         display_example <<~TABCODE
           table_from_hashes [
-          	{name: "Haruhi", age: 17},
-          	{name: "Mikuru", age: 18},
-          	{name: "Kyon", age: 17},
-          	{name: "Nagato", age: 17},
-          	{name: "Itsuki", age: 17},
-          	{name: "Tsuruya", age: 18}
+            {name: "Haruhi", age: 17},
+            {name: "Mikuru", age: 18},
+            {name: "Kyon", age: 17},
+            {name: "Nagato", age: 17},
+            {name: "Itsuki", age: 17},
+            {name: "Tsuruya", age: 18}
           ]
         TABCODE
       end
@@ -905,12 +905,12 @@ topnav_page 'Weaver Documentation' do
 
         display_example <<~TABCODE
           table_from_hashes [
-          	{name: "Haruhi", age: 17, class: "2-B"},
-          	{name: "Mikuru", age: 18, class: "3-A"},
-          	{name: "Kyon", age: 17, class: "2-B"},
-          	{name: "Nagato", age: 17, class: "2-A"},
-          	{name: "Itsuki", age: 17, class: "2-C"},
-          	{name: "Tsuruya", age: 18, class: "3-A"}
+            {name: "Haruhi", age: 17, class: "2-B"},
+            {name: "Mikuru", age: 18, class: "3-A"},
+            {name: "Kyon", age: 17, class: "2-B"},
+            {name: "Nagato", age: 17, class: "2-A"},
+            {name: "Itsuki", age: 17, class: "2-C"},
+            {name: "Tsuruya", age: 18, class: "3-A"}
           ], bordered: true, striped: true
         TABCODE
       end
