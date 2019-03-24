@@ -5,6 +5,7 @@ AllCops:
   Exclude:
     - gettags.rb
   Include:
+    - source/**/*.rb
     - source/**/*.weave
 
 Metrics/BlockLength:
@@ -14,3 +15,8 @@ Metrics/BlockLength:
 Naming/FileName:
   Exclude:
     - Gemfile
+
+Style/FrozenStringLiteralComment:
+  Exclude:
+    - source/**/*.weave
+    - 'source/main.rb'

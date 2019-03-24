@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 raw_page do
   text 'This is a raw page with absolutely no skeleton. Great for static data'
 

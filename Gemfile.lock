@@ -1,3 +1,11 @@
+PATH
+  remote: ../weaver
+  specs:
+    weaver (0.8.0)
+      activesupport
+      optimist
+      sinatra (~> 2.0.3)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -24,16 +32,12 @@ GEM
     tilt (2.0.9)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
-    weaver (0.8.0)
-      activesupport
-      optimist
-      sinatra (~> 2.0.3)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  weaver (= 0.8.0)
+  weaver!
 
 BUNDLED WITH
    1.16.6

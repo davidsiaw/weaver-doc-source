@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 def link_example(name)
   syntax :ruby do
     content File.read("source/examples/#{name}.weave")
@@ -28,9 +26,7 @@ def create_menu
     if ENV['VERSION_LIST']
       nav 'Other Versions', :th do
         versions = ["v#{Weaver::VERSION}"]
-        if File.exist? 'available_versions'
-          versions = File.read('available_versions').split("\n")
-        end
+        versions = File.read('available_versions').split("\n") if File.exist? 'available_versions'
         versions.each do |ver|
           velem = Weaver::Elements.new(self, @anchors)
           if ver == "v#{Weaver::VERSION}"

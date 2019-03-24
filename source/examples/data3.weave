@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 raw_page do
   h = [
     { name: 'haruka', age: '17', color: 'red', inv_color: 'white' },

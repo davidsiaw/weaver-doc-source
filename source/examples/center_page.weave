@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 center_page 'Center Page Template' do
   p 'In this template, there no navigation bar, and everything is centered. Great for login/lock screens'
 

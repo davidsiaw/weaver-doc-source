@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 topnav_page 'Topnav Page Template With Brand' do
   brand 'HOME PAGE'
 
