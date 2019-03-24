@@ -1,10 +1,11 @@
-center_page "Adding your own CSS" do
+# frozen_string_literal: true
 
-	request_css "css/mystyle.css"
+center_page 'Adding your own CSS' do
+  request_css 'css/mystyle.css'
 
-	p "Example for adding your own CSS"
+  p 'Example for adding your own CSS'
 
-	ibox do
-		p "This is my own style", id: "some_red_text"
-	end
+  ibox do
+    p 'This is my own style', id: 'some_red_text'
+  end
 end

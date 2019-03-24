@@ -1,4 +1,6 @@
+# frozen_string_literal: true
+
 raw_page do
-	h = {name: "haruka", age: "17", color: "red"}
-	text h.to_json
+  h = { name: 'haruka', age: '17', color: 'red' }
+  text h.to_json
 end

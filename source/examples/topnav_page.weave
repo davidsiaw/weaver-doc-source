@@ -1,26 +1,27 @@
-topnav_page "Topnav Page Template" do
+# frozen_string_literal: true
 
-	menu do
-		nav "Navigation link one", :navicon, "/examples/topnav_page/"
-		nav "Navigation link two", :navicon, "/examples/topnav_page/"
+topnav_page 'Topnav Page Template' do
+  menu do
+    nav 'Navigation link one', :navicon, '/examples/topnav_page/'
+    nav 'Navigation link two', :navicon, '/examples/topnav_page/'
 
-		nav "Nested links", :navicon, "/examples" do
-			nav "Inner link one", :navicon, "/examples/topnav_page/"
-			nav "Inner link two", :navicon, "/examples/topnav_page/"
-		end
+    nav 'Nested links', :navicon, '/examples' do
+      nav 'Inner link one', :navicon, '/examples/topnav_page/'
+      nav 'Inner link two', :navicon, '/examples/topnav_page/'
+    end
 
-		nav "Navigation link three", :navicon, "/examples/topnav_page/"
-	end
+    nav 'Navigation link three', :navicon, '/examples/topnav_page/'
+  end
 
-	header do
-		col 12 do
-			h2 "Top Navigation Bar"
-		end
-	end
+  header do
+    col 12 do
+      h2 'Top Navigation Bar'
+    end
+  end
 
-	row do
-		col 12 do
-			p "In this template, there is a navigation bar on the top."
-		end
-	end
+  row do
+    col 12 do
+      p 'In this template, there is a navigation bar on the top.'
+    end
+  end
 end

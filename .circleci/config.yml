@@ -2,9 +2,29 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/ruby:2.3-jessie
+      - image: circleci/ruby:2.6-node
     steps:
       - checkout
       - add_ssh_keys:
           fingerprints: "fb:d7:d6:b6:c5:8b:1f:0e:96:0b:d9:0d:be:f8:00:49"
       - run: bash deploy.bash
+
+  rubocop:
+    docker:
+      - image: circleci/ruby:2.6-node
+        environment:
+          RAILS_ENV: development
+    steps:
+      - checkout
+      - run:
+          name: install rubocop
+          command: |
+            gem install rubocop
+      - run: rubocop
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build
+      - rubocop

@@ -1,3 +1,8 @@
-source "https://rubygems.org"
+# frozen_string_literal: true
 
-gem "weaver", "0.7.0"
+source 'https://rubygems.org'
+
+options = ['0.8.0']
+options = [path: '../weaver'] unless ENV['CI']
+
+gem 'weaver', *options

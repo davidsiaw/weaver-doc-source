@@ -1,0 +1,16 @@
+inherit_from: .rubocop_todo.yml
+
+AllCops:
+  TargetRubyVersion: 2.6
+  Exclude:
+    - gettags.rb
+  Include:
+    - source/**/*.weave
+
+Metrics/BlockLength:
+  Exclude:
+    - source/**/*.weave
+
+Naming/FileName:
+  Exclude:
+    - Gemfile

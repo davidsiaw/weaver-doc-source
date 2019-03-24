@@ -1,8 +1,10 @@
-center_page "Hello world" do
-	ibox do
-		h2 "Hello world!"
-		for i in 1..5
-			p "#{i}"
-		end
-	end
+# frozen_string_literal: true
+
+center_page 'Hello world' do
+  ibox do
+    h2 'Hello world!'
+    (1..5).each do |i|
+      p i.to_s
+    end
+  end
 end
