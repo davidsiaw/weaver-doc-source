@@ -10,4 +10,49 @@ nonnav_page 'Nonnav Page Template' do
       p 'This template is like the empty template, except it is structured'
     end
   end
+
+  row do
+    half do
+      ibox { p 'Halves' }
+    end
+    half do
+      ibox { p 'Halves' }
+    end
+  end
+
+  row do
+    third do
+      ibox { p 'Thirds' }
+    end
+    third do
+      ibox { p 'Thirds' }
+    end
+    third do
+      ibox { p 'Thirds' }
+    end
+  end
+
+  row do
+    third do
+      ibox { p 'Thirds' }
+    end
+    twothirds do
+      ibox { p 'Two Thirds' }
+    end
+  end
+
+  row do
+    quarter do
+      ibox { p 'Quarter' }
+    end
+    quarter do
+      ibox { p 'Quarter' }
+    end
+    quarter do
+      ibox { p 'Quarter' }
+    end
+    quarter do
+      ibox { p 'Quarter' }
+    end
+  end
 end

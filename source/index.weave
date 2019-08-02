@@ -451,6 +451,14 @@ topnav_page 'Weaver Documentation' do
         link_example 'topnav_page_with_brand'
         hr
         link_example 'sidenav_page_with_brand'
+
+        hr
+
+        h3 'Sidebar variation'
+
+        p 'This sidebar minimizes into an icon bar instead of disappearing totally'
+
+        link_example 'sidenav_page_iconbar'
       end
     end
   end

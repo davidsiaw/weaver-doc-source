@@ -1,0 +1,27 @@
+sidenav_page 'Sidenav Page Template' do
+  # Use this directive to keep icons visible
+  keep_icons_when_hidden
+  menu do
+    nav 'Navigation link one', :navicon, '/examples/sidenav_page/'
+    nav 'Navigation link two', :navicon, '/examples/sidenav_page/'
+
+    nav 'Nested links', :navicon, '/examples' do
+      nav 'Inner link one', :navicon, '/examples/sidenav_page/'
+      nav 'Inner link two', :navicon, '/examples/sidenav_page/'
+    end
+
+    nav 'Navigation link three', :navicon, '/examples/sidenav_page/'
+  end
+
+  header do
+    col 12 do
+      h2 'Side Navigation Bar Iconbar'
+    end
+  end
+
+  row do
+    col 12 do
+      p 'In this template, the navigation bar on the side minimizes into icons'
+    end
+  end
+end
