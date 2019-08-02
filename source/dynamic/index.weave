@@ -335,4 +335,21 @@ topnav_page 'Weaver Documentation' do
       end
     end
   end
+
+  row do
+    col 12 do
+      ibox do
+        title 'Credit Card Entry'
+        display_example <<~STUFF
+          wform do
+            credit_card id: 'ccard'
+            br
+            submit "See contents" do
+              script "alert(JSON.stringify(data));"
+            end
+          end
+        STUFF
+      end
+    end
+  end
 end
