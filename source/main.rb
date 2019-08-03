@@ -12,6 +12,7 @@ def display_example(weaver_code)
       syntax :ruby do
         content weaver_code.chomp
       end
+      br
     end
     half do
       eval weaver_code

@@ -24,7 +24,7 @@ GEM
     tilt (2.0.9)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
-    weaver (0.8.9)
+    weaver (0.8.10)
       activesupport
       optimist
       sinatra (~> 2.0.3)
@@ -33,7 +33,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  weaver (= 0.8.9)
+  weaver (= 0.8.10)
 
 BUNDLED WITH
    1.16.6
