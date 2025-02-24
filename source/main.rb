@@ -24,6 +24,8 @@ def create_menu
   menu do
     nav 'Static Features', :"th-large", '/'
     nav 'Dynamic Features', :"th-large", '/dynamic/'
+    nav 'Static Features (dark)', :"th-large", '/dark'
+    nav 'Dynamic Features (dark)', :"th-large", '/dynamic/dark'
     if ENV['VERSION_LIST']
       nav 'Other Versions', :th do
         versions = ["v#{Weaver::VERSION}"]

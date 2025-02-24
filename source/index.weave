@@ -2,943 +2,952 @@
 
 include 'main.rb'
 
-topnav_page 'Weaver Documentation' do
-  create_menu
+def main_page_themed(path: '', theme: nil)
 
-  top do
-    text <<-GITHUBRIBBON
-    <a href="https://github.com/davidsiaw/weaver"><img style="position: absolute; z-index: 100; top: 50px; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
-    GITHUBRIBBON
-  end
+  topnav_page path, 'Weaver Documentation', theme: theme do
+    create_menu
 
-  header do
-    col 12 do
-      h2 "Welcome to Weaver #{Weaver::VERSION}"
-      hr
-      p 'The following is a rough documentation intended to simply demonstrate and enumerate the facilities provided by weaver'
+    request_css "css/ghfork.css"
 
-      p 'This documentation page is written in Weaver too! See'
-      hyperlink 'https://github.com/davidsiaw/weaver-doc-source'
+    top do
+      text <<-GITHUBRIBBON
+      <a class="github-fork-ribbon" href="https://github.com/davidsiaw/weaver" data-ribbon="Fork me on GitHub" title="Fork me on GitHub">Fork me on GitHub</a>
+      GITHUBRIBBON
     end
-  end
 
-  row do
-    col 12 do
-      hr
-    end
-  end
+    header do
+      col 12 do
+        h2 "Welcome to Weaver #{Weaver::VERSION}"
+        hr
+        p 'The following is a rough documentation intended to simply demonstrate and enumerate the facilities provided by weaver'
 
-  row do
-    col 12 do
-      ibox do
-        title 'Installing Weaver'
-
-        pre 'gem install weaver'
+        p 'This documentation page is written in Weaver too! See'
+        hyperlink 'https://github.com/davidsiaw/weaver-doc-source'
       end
     end
-  end
 
-  row do
-    col 12 do
-      ibox do
-        title 'Getting Started'
-
-        pre 'weaver create my_site'
-
-        p 'This will create a folder that looks like this:'
-
-        pre <<~TREE
-          my_site/
-          ├── Gemfile
-          ├── Gemfile.lock
-          ├── cache
-          ├── js
-          ├── css
-          ├── images
-          └── source
-              └── index.weave
-
-        TREE
-
-        p 'Go to your website directory and install its dependencies:'
-
-        pre <<~COMMANDS
-          cd my_site
-          bundle install
-        COMMANDS
-
-        p 'Weave files are where you describe websites. To preview your site, simply go'
-
-        pre <<~COMMANDS
-          bundle exec weaver
-        COMMANDS
-
-        p 'By default weaver binds to port 4567, but you can change that by going:'
-
-        pre <<~COMMANDS
-          PORT=8080 bundle exec weaver
-        COMMANDS
-
-        p 'Easy!'
+    row do
+      col 12 do
+        hr
       end
     end
-  end
 
-  row do
-    col 12 do
-      ibox do
-        title 'Building your website'
+    row do
+      col 12 do
+        ibox do
+          title 'Installing Weaver'
 
-        p 'To build your website simply use the following command:'
-
-        pre 'bundle exec weaver build'
-
-        p do
-          text 'Your website will be generated and placed in the '
-          code 'build'
-          text ' directory'
+          pre 'gem install weaver'
         end
-
-        p 'If your website is not a root website (it is in a subdirectory), then you can add the -r parameter, as we do for this documentation site:'
-
-        pre 'bundle exec weaver build -r http://davidsiaw.github.io/weaver-docs/'
-
-        p 'This sets the root for images and other things such as links'
       end
     end
-  end
 
-  row do
-    col 12 do
-      ibox do
-        title 'Simple example Weave file'
+    row do
+      col 12 do
+        ibox do
+          title 'Getting Started'
 
-        p 'The most basic file takes one argument: the title, and a block that contains the contents of the page'
+          pre 'weaver create my_site'
 
-        link_example 'hello'
+          p 'This will create a folder that looks like this:'
+
+          pre <<~TREE
+            my_site/
+            ├── Gemfile
+            ├── Gemfile.lock
+            ├── cache
+            ├── js
+            ├── css
+            ├── images
+            └── source
+                └── index.weave
+
+          TREE
+
+          p 'Go to your website directory and install its dependencies:'
+
+          pre <<~COMMANDS
+            cd my_site
+            bundle install
+          COMMANDS
+
+          p 'Weave files are where you describe websites. To preview your site, simply go'
+
+          pre <<~COMMANDS
+            bundle exec weaver
+          COMMANDS
+
+          p 'By default weaver binds to port 4567, but you can change that by going:'
+
+          pre <<~COMMANDS
+            PORT=8080 bundle exec weaver
+          COMMANDS
+
+          p 'Easy!'
+        end
       end
     end
-  end
 
-  row do
-    col 12 do
-      ibox do
-        title 'Weave files only contain Ruby code'
+    row do
+      col 12 do
+        ibox do
+          title 'Building your website'
 
-        p 'This means that you can do whatever you can normally do in Ruby'
+          p 'To build your website simply use the following command:'
 
-        link_example 'loop'
+          pre 'bundle exec weaver build'
+
+          p do
+            text 'Your website will be generated and placed in the '
+            code 'build'
+            text ' directory'
+          end
+
+          p 'If your website is not a root website (it is in a subdirectory), then you can add the -r parameter, as we do for this documentation site:'
+
+          pre 'bundle exec weaver build -r http://davidsiaw.github.io/weaver-docs/'
+
+          p 'This sets the root for images and other things such as links'
+        end
       end
     end
-  end
 
-  row do
-    col 12 do
-      ibox do
-        title 'You can use all the HTML tags by simply calling them as if they are methods:'
+    row do
+      col 12 do
+        ibox do
+          title 'Simple example Weave file'
 
-        display_example <<~STUFF
-          h1 "This is Heading 1"
-          h2 "This is Heading 2"
-          h3 "This is Heading 3"
-          h4 "This is Heading 4"
-          h5 "This is Heading 5"
-          h6 "This is Heading 6"
-          pre "This is Preformatted"
-          em "This is Emphasized"
-          blockquote "This is in a Blockquote"
-          p "Paragraph text"
-        STUFF
+          p 'The most basic file takes one argument: the title, and a block that contains the contents of the page'
+
+          link_example 'hello'
+        end
       end
     end
-  end
 
-  row do
-    col 12 do
-      ibox do
-        title 'You can also put attributes on a tag'
+    row do
+      col 12 do
+        ibox do
+          title 'Weave files only contain Ruby code'
 
-        p 'This allows you to change styles, set more attributes on it, etc ...'
+          p 'This means that you can do whatever you can normally do in Ruby'
 
-        display_example <<~STUFF
-          span "Some text "
-          span "colored ", style:"color:blue"
-          span "red ", style:"color:red"
-        STUFF
+          link_example 'loop'
+        end
       end
     end
-  end
 
-  row do
-    col 12 do
-      ibox do
-        title 'You can also wrap content in another tag'
+    row do
+      col 12 do
+        ibox do
+          title 'You can use all the HTML tags by simply calling them as if they are methods:'
 
-        p 'This is the same as doing it in HTML. Instead of passing it a string, you use a block'
+          display_example <<~STUFF
+            h1 "This is Heading 1"
+            h2 "This is Heading 2"
+            h3 "This is Heading 3"
+            h4 "This is Heading 4"
+            h5 "This is Heading 5"
+            h6 "This is Heading 6"
+            pre "This is Preformatted"
+            em "This is Emphasized"
+            blockquote "This is in a Blockquote"
+            p "Paragraph text"
+          STUFF
+        end
+      end
+    end
 
-        display_example <<~STUFF
-          h3 style:"text-decoration:underline" do
+    row do
+      col 12 do
+        ibox do
+          title 'You can also put attributes on a tag'
+
+          p 'This allows you to change styles, set more attributes on it, etc ...'
+
+          display_example <<~STUFF
             span "Some text "
             span "colored ", style:"color:blue"
             span "red ", style:"color:red"
+          STUFF
+        end
+      end
+    end
+
+    row do
+      col 12 do
+        ibox do
+          title 'You can also wrap content in another tag'
+
+          p 'This is the same as doing it in HTML. Instead of passing it a string, you use a block'
+
+          display_example <<~STUFF
+            h3 style:"text-decoration:underline" do
+              span "Some text "
+              span "colored ", style:"color:blue"
+              span "red ", style:"color:red"
+            end
+          STUFF
+        end
+      end
+    end
+
+    row do
+      col 12 do
+        ibox do
+          title 'This works for all tags'
+
+          p 'Like lists:'
+
+          display_example <<~STUFF
+            ul do
+              li { text "Haruhi" }
+              li { text "Kyon" }
+              li { text "Itsuki" }
+            end
+             ol do
+              li { text "Nagato" }
+              li { text "Mikuru" }
+              li { text "Tsuruya" }
+            end
+          STUFF
+
+          footer do
+            code 'text'
+            text " is a special tag to mean 'there are no tags', just plain html"
           end
-        STUFF
+        end
       end
     end
-  end
 
-  row do
-    col 12 do
-      ibox do
-        title 'This works for all tags'
+    row do
+      col 12 do
+        ibox do
+          title 'AsciiMath'
 
-        p 'Like lists:'
+          p 'There is support for AsciiMath'
 
-        display_example <<~STUFF
-          ul do
-            li { text "Haruhi" }
-            li { text "Kyon" }
-            li { text "Itsuki" }
+          display_example <<~STUFF
+            math "sum_(i=1)^n i^3=((n(n+1))/2)^2"
+          STUFF
+
+          hr
+
+          title 'AsciiMath 2'
+
+          p 'Math is basically text'
+
+          display_example <<~STUFF
+            text "The formula is thus: "
+            math "x = 10 / y"
+            text " hence we can see that "
+            math "x = 5"
+          STUFF
+
+          footer do
+            text 'See AsciiMath syntax here: '
+            hyperlink 'http://asciimath.org/#syntax'
           end
-           ol do
-            li { text "Nagato" }
-            li { text "Mikuru" }
-            li { text "Tsuruya" }
+        end
+      end
+    end
+
+    row do
+      col 12 do
+        ibox do
+          title 'Icons'
+
+          p 'There are icons available in here since the theme uses bootstrap'
+
+          display_example <<~STUFF
+            icon :github
+            text "Github"
+            br
+            icon :user
+            text "User"
+          STUFF
+
+          footer do
+            text 'A list of all icons are available here: '
+            hyperlink 'examples/icons'
           end
-        STUFF
-
-        footer do
-          code 'text'
-          text " is a special tag to mean 'there are no tags', just plain html"
         end
       end
     end
-  end
 
-  row do
-    col 12 do
-      ibox do
-        title 'AsciiMath'
+    row do
+      col 12 do
+        ibox do
+          title 'Breadcrumbs'
 
-        p 'There is support for AsciiMath'
-
-        display_example <<~STUFF
-          math "sum_(i=1)^n i^3=((n(n+1))/2)^2"
-        STUFF
-
-        hr
-
-        title 'AsciiMath 2'
-
-        p 'Math is basically text'
-
-        display_example <<~STUFF
-          text "The formula is thus: "
-          math "x = 10 / y"
-          text " hence we can see that "
-          math "x = 5"
-        STUFF
-
-        footer do
-          text 'See AsciiMath syntax here: '
-          hyperlink 'http://asciimath.org/#syntax'
+          display_example <<~STUFF
+            breadcrumb ["root", "some", "directory"]
+          STUFF
         end
       end
     end
-  end
 
-  row do
-    col 12 do
-      ibox do
-        title 'Icons'
+    row do
+      col 12 do
+        ibox do
+          title 'CSS'
 
-        p 'There are icons available in here since the theme uses bootstrap'
+          p 'If you want to add your own CSS:'
 
-        display_example <<~STUFF
-          icon :github
-          text "Github"
-          br
-          icon :user
-          text "User"
-        STUFF
+          syntax :css do
+            content File.read('css/mystyle.css')
+          end
 
-        footer do
-          text 'A list of all icons are available here: '
-          hyperlink 'examples/icons'
+          p 'Use the request_css function:'
+
+          link_example 'css'
+
+          footer do
+            p 'CSS files are placed in the css folder by convention'
+
+            pre <<~TREE
+              my_site/
+              ├── Gemfile
+              ├── Gemfile.lock
+              ├── css   <-------------- here
+              │   └── mystyle.css
+              └── source
+                  └── index.weave
+
+            TREE
+          end
         end
       end
     end
-  end
 
-  row do
-    col 12 do
-      ibox do
-        title 'Breadcrumbs'
+    row do
+      col 12 do
+        ibox do
+          title 'JavaScript'
 
-        display_example <<~STUFF
-          breadcrumb ["root", "some", "directory"]
-        STUFF
-      end
-    end
-  end
+          p 'If you want to add your own JavaScript files:'
 
-  row do
-    col 12 do
-      ibox do
-        title 'CSS'
-
-        p 'If you want to add your own CSS:'
-
-        syntax :css do
-          content File.read('css/mystyle.css')
-        end
-
-        p 'Use the request_css function:'
-
-        link_example 'css'
-
-        footer do
-          p 'CSS files are placed in the css folder by convention'
-
-          pre <<~TREE
-            my_site/
-            ├── Gemfile
-            ├── Gemfile.lock
-            ├── css   <-------------- here
-            │   └── mystyle.css
-            └── source
-                └── index.weave
-
-          TREE
-        end
-      end
-    end
-  end
-
-  row do
-    col 12 do
-      ibox do
-        title 'JavaScript'
-
-        p 'If you want to add your own JavaScript files:'
-
-        syntax :javascript do
-          content File.read('js/myscript.js')
-        end
-
-        p 'Use the request_js function:'
-
-        link_example 'js'
-
-        p "We encourage putting your JavaScript in .js files so you don't clutter your presentation with code"
-
-        footer do
-          p 'JavaScript files are placed in the js folder by convention'
-
-          pre <<~TREE
-            my_site/
-            ├── Gemfile
-            ├── Gemfile.lock
-            ├── js   <-------------- here
-            │   └── myscript.js
-            └── source
-                └── index.weave
-
-          TREE
-        end
-      end
-    end
-  end
-
-  row do
-    col 12 do
-      ibox do
-        title 'Images'
-
-        display_example <<~STUFF
-          image "kagamin.png"
-        STUFF
-
-        footer do
-          p 'Images are placed in the images folder, where they will be found'
-
-          pre <<~TREE
-            my_site/
-            ├── Gemfile
-            ├── Gemfile.lock
-            ├── images   <-------------- here
-            │   ├── kagamin-under.png
-            │   └── kagamin.png
-            └── source
-                └── index.weave
-
-          TREE
-        end
-      end
-    end
-  end
-
-  row do
-    col 12 do
-      ibox do
-        title 'Crossfading images'
-
-        display_example <<~STUFF
-          crossfade_image "kagamin-under.png", "kagamin.png"
-        STUFF
-
-        footer do
-          p 'Images are placed in the images folder, where they will be found'
-        end
-      end
-    end
-  end
-
-  row do
-    col 12 do
-      ibox do
-        title 'Syntax Highlighting'
-
-        display_example <<~STUFF
           syntax :javascript do
-            content <<~SOME_CODE
-              function a()
-              {
-                return 0;
-              }
-            SOME_CODE
+            content File.read('js/myscript.js')
           end
-        STUFF
-      end
-    end
-  end
 
-  row do
-    col 12 do
-      ibox do
-        title 'There are different page templates to choose from'
+          p 'Use the request_js function:'
 
-        p 'All page templates are responsive'
+          link_example 'js'
 
-        h3 'Structureless pages'
+          p "We encourage putting your JavaScript in .js files so you don't clutter your presentation with code"
 
-        p 'Structureless pages allow you to directly write content'
+          footer do
+            p 'JavaScript files are placed in the js folder by convention'
 
-        link_example 'empty_page'
-        hr
-        link_example 'center_page'
-        hr
-        link_example 'raw_page'
+            pre <<~TREE
+              my_site/
+              ├── Gemfile
+              ├── Gemfile.lock
+              ├── js   <-------------- here
+              │   └── myscript.js
+              └── source
+                  └── index.weave
 
-        hr
-
-        h3 'Structured pages'
-
-        p 'Structured pages require all content to be placed in headers/rows and columns'
-
-        link_example 'nonnav_page'
-        hr
-        link_example 'topnav_page'
-        hr
-        link_example 'sidenav_page'
-
-        hr
-
-        h3 'Navigation page brands'
-
-        p 'You can also add a brand section to pages with navigation. The brand is just a link to home.'
-
-        link_example 'topnav_page_with_brand'
-        hr
-        link_example 'sidenav_page_with_brand'
-
-        hr
-
-        h3 'Sidebar variation'
-
-        p 'This sidebar minimizes into an icon bar instead of disappearing totally'
-
-        link_example 'sidenav_page_iconbar'
-      end
-    end
-  end
-
-  row do
-    col 12 do
-      ibox do
-        title 'There are different preset partition schemes too'
-
-        link_example 'partition_schemes'
-      end
-    end
-  end
-
-  row do
-    col 12 do
-      ibox do
-        title 'There are buttons'
-
-        display_example <<~TABCODE
-          button "Original Html Button"; br
-          normal_button nil, "Normal Button"; br
-          block_button nil, "Block Button"; br
-          outline_button nil, "Outline Button"; br
-          big_button nil, "Big Button"; br
-          small_button nil, "Small Button"; br
-          tiny_button :user, ""; br
-          embossed_button nil, "Embossed Button"; br
-          big_embossed_button :user, ""; br
-          rounded_button nil, "Rounded Button"; br
-          circle_button :user, ""; br
-
-        TABCODE
-      end
-    end
-  end
-
-  row do
-    col 12 do
-      ibox do
-        title 'There are various types of panels available'
-
-        display_example <<~TABCODE
-          ibox do
-            type :panel
-            title "Panel"
-            p "Some content"
+            TREE
           end
-           ibox do
-            type :primary
-            title "Primary"
-            p "Some content"
-          end
-           ibox do
-            type :success
-            title "Success"
-            p "Some content"
-          end
-           ibox do
-            type :info
-            title "Info"
-            p "Some content"
-          end
-           ibox do
-            type :warning
-            title "Warning"
-            p "Some content"
-          end
-           ibox do
-            type :danger
-            title "Danger"
-            p "Some content"
-          end
-           ibox do
-            type :blank
-            title "Blank"
-            p "Some content"
-          end
-        TABCODE
-      end
-    end
-  end
-
-  row do
-    col 12 do
-      ibox do
-        title 'Jumbotron'
-
-        display_example <<~TABCODE
-          jumbotron do
-            h2 "Jumbotron"
-          end
-        TABCODE
-      end
-    end
-  end
-
-  row do
-    col 12 do
-      ibox do
-        title 'Widgets'
-
-        display_example <<~TABCODE
-          widget color: :"gray" do
-            p "gray"
-          end
-          widget color: :"gray" do
-            widget color: :"white" do
-              p "white"
-            end
-          end
-          widget color: :"navy" do
-            p "navy"
-          end
-          widget color: :"blue" do
-            p "blue"
-          end
-          widget color: :"lazur" do
-            p "lazur"
-          end
-          widget color: :"yellow" do
-            p "yellow"
-          end
-          widget color: :"red" do
-            p "red"
-          end
-          widget color: :"black" do
-            p "black", style: "color:white"
-          end
-        TABCODE
-      end
-    end
-  end
-
-  row do
-    col 12 do
-      ibox do
-        title 'It is easy to make tabs'
-
-        display_example <<~TABCODE
-          tabs do
-            tab "Dog" do
-              p "Woof"
-            end
-            tab "Cat" do
-              p "Meow"
-            end
-            tab "Duck" do
-              p "Quack"
-            end
-          end
-        TABCODE
-      end
-    end
-  end
-
-  row do
-    col 12 do
-      ibox do
-        title 'There are two other possible orientations'
-
-        p do
-          text 'There is '
-          code ':left'
-          text ' and '
-          code ':right'
-        end
-
-        display_example <<~TABCODE
-          tabs do
-            orientation :left
-            tab "Dog" do
-              p "Woof"
-            end
-            tab "Cat" do
-              p "Meow"
-            end
-            tab "Duck" do
-              p "Quack"
-            end
-          end
-        TABCODE
-      end
-    end
-  end
-
-  row do
-    col 12 do
-      ibox do
-        title 'It is also possible to use icons'
-
-        display_example <<~TABCODE
-          tabs do
-            tab :automobile do
-              p "Car"
-            end
-            tab :train do
-              p "Subway"
-            end
-            tab :bus do
-              p "Bus"
-            end
-          end
-        TABCODE
-      end
-    end
-  end
-
-  row do
-    col 12 do
-      ibox do
-        title 'It is also possible to use an accordion'
-
-        display_example <<~TABCODE
-          accordion do
-            tab "Dog" do
-              p "Woof"
-            end
-            tab "Cat" do
-              p "Meow"
-            end
-            tab "Duck" do
-              p "Quack"
-            end
-          end
-        TABCODE
-      end
-    end
-  end
-
-  row do
-    col 12 do
-      ibox do
-        title 'Tables can also be made the standard way'
-
-        display_example <<~TABCODE
-          table do
-            thead do
-              th { text "Name" }
-              th { text "Class" }
-            end
-            tr do
-              td { text "Haruhi" }
-              td { text "2-B" }
-            end
-            tr do
-              td { text "Kyon" }
-              td { text "2-B" }
-            end
-            tr do
-              td { text "Mikuru" }
-              td { text "3-A" }
-            end
-          end
-        TABCODE
-      end
-    end
-  end
-
-  row do
-    col 12 do
-      ibox do
-        title 'Bordered style'
-
-        p 'You can mix and match styles'
-
-        display_example <<~TABCODE
-          table bordered: true do
-            thead do
-              th { text "Name" }
-              th { text "Class" }
-            end
-            tr do
-              td { text "Haruhi" }
-              td { text "2-B" }
-            end
-            tr do
-              td { text "Kyon" }
-              td { text "2-B" }
-            end
-            tr do
-              td { text "Mikuru" }
-              td { text "3-A" }
-            end
-          end
-        TABCODE
-      end
-    end
-  end
-
-  row do
-    col 12 do
-      ibox do
-        title 'Hover style'
-
-        display_example <<~TABCODE
-          table hover: true do
-            thead do
-              th { text "Name" }
-              th { text "Class" }
-            end
-            tr do
-              td { text "Haruhi" }
-              td { text "2-B" }
-            end
-            tr do
-              td { text "Kyon" }
-              td { text "2-B" }
-            end
-            tr do
-              td { text "Mikuru" }
-              td { text "3-A" }
-            end
-          end
-        TABCODE
-      end
-    end
-  end
-
-  row do
-    col 12 do
-      ibox do
-        title 'Striped style'
-
-        display_example <<~TABCODE
-          table striped: true do
-            thead do
-              th { text "Name" }
-              th { text "Class" }
-            end
-            tr do
-              td { text "Haruhi" }
-              td { text "2-B" }
-            end
-            tr do
-              td { text "Kyon" }
-              td { text "2-B" }
-            end
-            tr do
-              td { text "Mikuru" }
-              td { text "3-A" }
-            end
-          end
-        TABCODE
-      end
-    end
-  end
-
-  row do
-    col 12 do
-      ibox do
-        title 'Data Table'
-
-        p 'Data table JQuery plugin'
-
-        display_example <<~TABCODE
-          table system: :data_table do
-            thead do
-              th { text "Name" }
-              th { text "Class" }
-            end
-            tr do
-              td { text "Haruhi" }
-              td { text "2-B" }
-            end
-            tr do
-              td { text "Kyon" }
-              td { text "2-B" }
-            end
-            tr do
-              td { text "Mikuru" }
-              td { text "3-A" }
-            end
-          end
-        TABCODE
-        footer do
-          p 'Supported systems are :data_table and :foo_table'
         end
       end
     end
-  end
 
-  row do
-    col 12 do
-      ibox do
-        title 'Foo Table'
+    row do
+      col 12 do
+        ibox do
+          title 'Images'
 
-        p 'Foo Table plugin'
+          display_example <<~STUFF
+            image "kagamin.png"
+          STUFF
 
-        display_example <<~TABCODE
-          table system: :foo_table do
-            thead do
-              th { text "Name" }
-              th { text "Class" }
-              th :"data-breakpoints" => :all do
-                text "Info"
-              end
-              th :"data-breakpoints" => :all do
-                text "Power"
+          footer do
+            p 'Images are placed in the images folder, where they will be found'
+
+            pre <<~TREE
+              my_site/
+              ├── Gemfile
+              ├── Gemfile.lock
+              ├── images   <-------------- here
+              │   ├── kagamin-under.png
+              │   └── kagamin.png
+              └── source
+                  └── index.weave
+
+            TREE
+          end
+        end
+      end
+    end
+
+    row do
+      col 12 do
+        ibox do
+          title 'Crossfading images'
+
+          display_example <<~STUFF
+            crossfade_image "kagamin-under.png", "kagamin.png"
+          STUFF
+
+          footer do
+            p 'Images are placed in the images folder, where they will be found'
+          end
+        end
+      end
+    end
+
+    row do
+      col 12 do
+        ibox do
+          title 'Syntax Highlighting'
+
+          display_example <<~STUFF
+            syntax :javascript do
+              content <<~SOME_CODE
+                function a()
+                {
+                  return 0;
+                }
+              SOME_CODE
+            end
+          STUFF
+        end
+      end
+    end
+
+    row do
+      col 12 do
+        ibox do
+          title 'There are different page templates to choose from'
+
+          p 'All page templates are responsive'
+
+          h3 'Structureless pages'
+
+          p 'Structureless pages allow you to directly write content'
+
+          link_example 'empty_page'
+          hr
+          link_example 'center_page'
+          hr
+          link_example 'raw_page'
+
+          hr
+
+          h3 'Structured pages'
+
+          p 'Structured pages require all content to be placed in headers/rows and columns'
+
+          link_example 'nonnav_page'
+          hr
+          link_example 'topnav_page'
+          hr
+          link_example 'sidenav_page'
+
+          hr
+
+          h3 'Navigation page brands'
+
+          p 'You can also add a brand section to pages with navigation. The brand is just a link to home.'
+
+          link_example 'topnav_page_with_brand'
+          hr
+          link_example 'sidenav_page_with_brand'
+
+          hr
+
+          h3 'Sidebar variation'
+
+          p 'This sidebar minimizes into an icon bar instead of disappearing totally'
+
+          link_example 'sidenav_page_iconbar'
+        end
+      end
+    end
+
+    row do
+      col 12 do
+        ibox do
+          title 'There are different preset partition schemes too'
+
+          link_example 'partition_schemes'
+        end
+      end
+    end
+
+    row do
+      col 12 do
+        ibox do
+          title 'There are buttons'
+
+          display_example <<~TABCODE
+            button "Original Html Button"; br
+            normal_button nil, "Normal Button"; br
+            block_button nil, "Block Button"; br
+            outline_button nil, "Outline Button"; br
+            big_button nil, "Big Button"; br
+            small_button nil, "Small Button"; br
+            tiny_button :user, ""; br
+            embossed_button nil, "Embossed Button"; br
+            big_embossed_button :user, ""; br
+            rounded_button nil, "Rounded Button"; br
+            circle_button :user, ""; br
+
+          TABCODE
+        end
+      end
+    end
+
+    row do
+      col 12 do
+        ibox do
+          title 'There are various types of panels available'
+
+          display_example <<~TABCODE
+            ibox do
+              type :panel
+              title "Panel"
+              p "Some content"
+            end
+             ibox do
+              type :primary
+              title "Primary"
+              p "Some content"
+            end
+             ibox do
+              type :success
+              title "Success"
+              p "Some content"
+            end
+             ibox do
+              type :info
+              title "Info"
+              p "Some content"
+            end
+             ibox do
+              type :warning
+              title "Warning"
+              p "Some content"
+            end
+             ibox do
+              type :danger
+              title "Danger"
+              p "Some content"
+            end
+             ibox do
+              type :blank
+              title "Blank"
+              p "Some content"
+            end
+          TABCODE
+        end
+      end
+    end
+
+    row do
+      col 12 do
+        ibox do
+          title 'Jumbotron'
+
+          display_example <<~TABCODE
+            jumbotron do
+              h2 "Jumbotron"
+            end
+          TABCODE
+        end
+      end
+    end
+
+    row do
+      col 12 do
+        ibox do
+          title 'Widgets'
+
+          display_example <<~TABCODE
+            widget color: :"gray" do
+              p "gray"
+            end
+            widget color: :"gray" do
+              widget color: :"white" do
+                p "white"
               end
             end
-            tr do
-              td { text "Haruhi" }
-              td { text "2-B" }
-              td { text "Uninterested in humans" }
-              td { text "Reality change" }
+            widget color: :"navy" do
+              p "navy"
             end
-            tr do
-              td { text "Kyon" }
-              td { text "2-B" }
-              td { text "Is the real God" }
-              td { text "Control over Haruhi" }
+            widget color: :"blue" do
+              p "blue"
             end
-            tr do
-              td { text "Mikuru" }
-              td { text "3-A" }
-              td { text "Classified information" }
-              td { text "Classified information" }
+            widget color: :"lazur" do
+              p "lazur"
             end
+            widget color: :"yellow" do
+              p "yellow"
+            end
+            widget color: :"red" do
+              p "red"
+            end
+            widget color: :"black" do
+              p "black", style: "color:white"
+            end
+          TABCODE
+        end
+      end
+    end
+
+    row do
+      col 12 do
+        ibox do
+          title 'It is easy to make tabs'
+
+          display_example <<~TABCODE
+            tabs do
+              tab "Dog" do
+                p "Woof"
+              end
+              tab "Cat" do
+                p "Meow"
+              end
+              tab "Duck" do
+                p "Quack"
+              end
+            end
+          TABCODE
+        end
+      end
+    end
+
+    row do
+      col 12 do
+        ibox do
+          title 'There are two other possible orientations'
+
+          p do
+            text 'There is '
+            code ':left'
+            text ' and '
+            code ':right'
           end
-        TABCODE
-        footer do
-          p 'Supported systems are :data_table and :foo_table'
+
+          display_example <<~TABCODE
+            tabs do
+              orientation :left
+              tab "Dog" do
+                p "Woof"
+              end
+              tab "Cat" do
+                p "Meow"
+              end
+              tab "Duck" do
+                p "Quack"
+              end
+            end
+          TABCODE
+        end
+      end
+    end
+
+    row do
+      col 12 do
+        ibox do
+          title 'It is also possible to use icons'
+
+          display_example <<~TABCODE
+            tabs do
+              tab :automobile do
+                p "Car"
+              end
+              tab :train do
+                p "Subway"
+              end
+              tab :bus do
+                p "Bus"
+              end
+            end
+          TABCODE
+        end
+      end
+    end
+
+    row do
+      col 12 do
+        ibox do
+          title 'It is also possible to use an accordion'
+
+          display_example <<~TABCODE
+            accordion do
+              tab "Dog" do
+                p "Woof"
+              end
+              tab "Cat" do
+                p "Meow"
+              end
+              tab "Duck" do
+                p "Quack"
+              end
+            end
+          TABCODE
+        end
+      end
+    end
+
+    row do
+      col 12 do
+        ibox do
+          title 'Tables can also be made the standard way'
+
+          display_example <<~TABCODE
+            table do
+              thead do
+                th { text "Name" }
+                th { text "Class" }
+              end
+              tr do
+                td { text "Haruhi" }
+                td { text "2-B" }
+              end
+              tr do
+                td { text "Kyon" }
+                td { text "2-B" }
+              end
+              tr do
+                td { text "Mikuru" }
+                td { text "3-A" }
+              end
+            end
+          TABCODE
+        end
+      end
+    end
+
+    row do
+      col 12 do
+        ibox do
+          title 'Bordered style'
+
+          p 'You can mix and match styles'
+
+          display_example <<~TABCODE
+            table bordered: true do
+              thead do
+                th { text "Name" }
+                th { text "Class" }
+              end
+              tr do
+                td { text "Haruhi" }
+                td { text "2-B" }
+              end
+              tr do
+                td { text "Kyon" }
+                td { text "2-B" }
+              end
+              tr do
+                td { text "Mikuru" }
+                td { text "3-A" }
+              end
+            end
+          TABCODE
+        end
+      end
+    end
+
+    row do
+      col 12 do
+        ibox do
+          title 'Hover style'
+
+          display_example <<~TABCODE
+            table hover: true do
+              thead do
+                th { text "Name" }
+                th { text "Class" }
+              end
+              tr do
+                td { text "Haruhi" }
+                td { text "2-B" }
+              end
+              tr do
+                td { text "Kyon" }
+                td { text "2-B" }
+              end
+              tr do
+                td { text "Mikuru" }
+                td { text "3-A" }
+              end
+            end
+          TABCODE
+        end
+      end
+    end
+
+    row do
+      col 12 do
+        ibox do
+          title 'Striped style'
+
+          display_example <<~TABCODE
+            table striped: true do
+              thead do
+                th { text "Name" }
+                th { text "Class" }
+              end
+              tr do
+                td { text "Haruhi" }
+                td { text "2-B" }
+              end
+              tr do
+                td { text "Kyon" }
+                td { text "2-B" }
+              end
+              tr do
+                td { text "Mikuru" }
+                td { text "3-A" }
+              end
+            end
+          TABCODE
+        end
+      end
+    end
+
+    row do
+      col 12 do
+        ibox do
+          title 'Data Table'
+
+          p 'Data table JQuery plugin'
+
+          display_example <<~TABCODE
+            table system: :data_table do
+              thead do
+                th { text "Name" }
+                th { text "Class" }
+              end
+              tr do
+                td { text "Haruhi" }
+                td { text "2-B" }
+              end
+              tr do
+                td { text "Kyon" }
+                td { text "2-B" }
+              end
+              tr do
+                td { text "Mikuru" }
+                td { text "3-A" }
+              end
+            end
+          TABCODE
+          footer do
+            p 'Supported systems are :data_table and :foo_table'
+          end
+        end
+      end
+    end
+
+    row do
+      col 12 do
+        ibox do
+          title 'Foo Table'
+
+          p 'Foo Table plugin'
+
+          display_example <<~TABCODE
+            table system: :foo_table do
+              thead do
+                th { text "Name" }
+                th { text "Class" }
+                th :"data-breakpoints" => :all do
+                  text "Info"
+                end
+                th :"data-breakpoints" => :all do
+                  text "Power"
+                end
+              end
+              tr do
+                td { text "Haruhi" }
+                td { text "2-B" }
+                td { text "Uninterested in humans" }
+                td { text "Reality change" }
+              end
+              tr do
+                td { text "Kyon" }
+                td { text "2-B" }
+                td { text "Is the real God" }
+                td { text "Control over Haruhi" }
+              end
+              tr do
+                td { text "Mikuru" }
+                td { text "3-A" }
+                td { text "Classified information" }
+                td { text "Classified information" }
+              end
+            end
+          TABCODE
+          footer do
+            p 'Supported systems are :data_table and :foo_table'
+          end
+        end
+      end
+    end
+
+    row do
+      col 12 do
+        ibox do
+          title 'You can make also tables easily from an array of Hashes'
+
+          display_example <<~TABCODE
+            table_from_hashes [
+              {name: "Haruhi", age: 17},
+              {name: "Mikuru", age: 18},
+              {name: "Kyon", age: 17},
+              {name: "Nagato", age: 17},
+              {name: "Itsuki", age: 17},
+              {name: "Tsuruya", age: 18}
+            ]
+          TABCODE
+        end
+      end
+    end
+
+    row do
+      col 12 do
+        ibox do
+          title 'You can also use the styles available to tables'
+
+          display_example <<~TABCODE
+            table_from_hashes [
+              {name: "Haruhi", age: 17, class: "2-B"},
+              {name: "Mikuru", age: 18, class: "3-A"},
+              {name: "Kyon", age: 17, class: "2-B"},
+              {name: "Nagato", age: 17, class: "2-A"},
+              {name: "Itsuki", age: 17, class: "2-C"},
+              {name: "Tsuruya", age: 18, class: "3-A"}
+            ], bordered: true, striped: true
+          TABCODE
+        end
+      end
+    end
+
+    row do
+      col 12 do
+        ibox do
+          title 'Describing multiple pages in one weave file'
+
+          p <<~DOC
+            It is possible to describe multiple pages in one weave file.
+            Simply pass it two arguments, the first being the path of the page, and the second the title of the page'
+          DOC
+
+          link_example 'multiple_page'
+
+          p 'This is usually useful if you are generating a site with multiple pages generated from some data'
         end
       end
     end
   end
 
-  row do
-    col 12 do
-      ibox do
-        title 'You can make also tables easily from an array of Hashes'
-
-        display_example <<~TABCODE
-          table_from_hashes [
-            {name: "Haruhi", age: 17},
-            {name: "Mikuru", age: 18},
-            {name: "Kyon", age: 17},
-            {name: "Nagato", age: 17},
-            {name: "Itsuki", age: 17},
-            {name: "Tsuruya", age: 18}
-          ]
-        TABCODE
-      end
-    end
-  end
-
-  row do
-    col 12 do
-      ibox do
-        title 'You can also use the styles available to tables'
-
-        display_example <<~TABCODE
-          table_from_hashes [
-            {name: "Haruhi", age: 17, class: "2-B"},
-            {name: "Mikuru", age: 18, class: "3-A"},
-            {name: "Kyon", age: 17, class: "2-B"},
-            {name: "Nagato", age: 17, class: "2-A"},
-            {name: "Itsuki", age: 17, class: "2-C"},
-            {name: "Tsuruya", age: 18, class: "3-A"}
-          ], bordered: true, striped: true
-        TABCODE
-      end
-    end
-  end
-
-  row do
-    col 12 do
-      ibox do
-        title 'Describing multiple pages in one weave file'
-
-        p <<~DOC
-          It is possible to describe multiple pages in one weave file.
-          Simply pass it two arguments, the first being the path of the page, and the second the title of the page'
-        DOC
-
-        link_example 'multiple_page'
-
-        p 'This is usually useful if you are generating a site with multiple pages generated from some data'
-      end
-    end
-  end
 end
+
+main_page_themed(path: '', theme: nil)
+main_page_themed(path: 'dark', theme: :dark)
