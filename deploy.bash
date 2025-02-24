@@ -1,10 +1,10 @@
 #!/bin/bash
 
 if [ "$TRAVIS" == "true" ]; then
-	git config --global user.email "davidsiaw@gmail.com"
+	git config --global user.email "874280+davidsiaw@users.noreply.github.com"
 	git config --global user.name "David Siaw (via Travis CI)"
 elif [ "$CIRCLECI" == "true" ]; then
-	git config --global user.email "davidsiaw@gmail.com"
+	git config --global user.email "874280+davidsiaw@users.noreply.github.com"
 	git config --global user.name "David Siaw (via Circle CI)"
 else
 	echo Not CI Environment
