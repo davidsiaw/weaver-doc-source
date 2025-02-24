@@ -6,7 +6,7 @@ jobs:
     steps:
       - checkout
       - add_ssh_keys:
-          fingerprints: "fb:d7:d6:b6:c5:8b:1f:0e:96:0b:d9:0d:be:f8:00:49"
+          fingerprints: "SHA256:/3QWVENLRNeLfLsRlwwihLejyRAmGQRoXfkOUIYPZ+4"
       - run: bash deploy.bash
 
   rubocop:

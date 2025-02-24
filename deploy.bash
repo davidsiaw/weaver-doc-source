@@ -20,7 +20,7 @@ pushd build
 git add .
 git add -u
 git commit -m "update `date`"
-ssh-agent bash -c 'ssh-add ~/.ssh/id_github.com; git push'
+git push
 popd
 
 rm -rf build
