@@ -1,0 +1,7 @@
+center_page '', 'Dark Center Page Template', theme: :dark do
+  p 'In this template, the theme is dark'
+
+  ibox do
+    p 'Stuff in an ibox to show the width of the page'
+  end
+end

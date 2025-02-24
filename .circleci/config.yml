@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/ruby:2.6-node
+      - image: circleci/ruby:3.2-node
     steps:
       - checkout
       - add_ssh_keys:
@@ -11,7 +11,7 @@ jobs:
 
   rubocop:
     docker:
-      - image: circleci/ruby:2.6-node
+      - image: circleci/ruby:3.2-node
         environment:
           RAILS_ENV: development
     steps:

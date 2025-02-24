@@ -470,6 +470,20 @@ def main_page_themed(path: '', theme: nil)
     row do
       col 12 do
         ibox do
+          title 'You can specify dark theme'
+
+          p 'This works for all the above templates'
+
+          link_example 'dark_center_page'
+
+        end
+      end
+    end
+
+
+    row do
+      col 12 do
+        ibox do
           title 'There are different preset partition schemes too'
 
           link_example 'partition_schemes'
