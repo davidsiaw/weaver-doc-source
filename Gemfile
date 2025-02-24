@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 
-options = ['0.8.14']
+options = ['0.9.0']
 options = [path: '../weaver'] unless ENV['CI']
 
 gem 'weaver', *options
